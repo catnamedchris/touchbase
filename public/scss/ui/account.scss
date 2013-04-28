@@ -1,0 +1,63 @@
+@import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+.account {
+    @include single-box-shadow(rgba(0, 0, 0, 0.4), 0, 0, 100px, 2px, false);
+
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    margin: 10% auto 0;
+    padding: 1.5em;
+    text-align: center;
+    width: 60%;
+
+    .account-title {
+        @include single-text-shadow(1px, 1px, 2px, false, rgba(0, 0, 0, 0.5));
+
+        color: #333;
+        font-family: 'Pacifico', cursive;
+    }
+
+    .account-signup {
+        display: none;
+    }
+
+    .account-no-signup {
+        margin-top: 1.5em;
+    }
+
+    .text-input {
+        border-radius: 4px;
+        padding: 0.5em;
+        width: 50%;
+    }
+}
+
+.h-divider {
+    padding: 1em 0;
+    position: relative;
+    text-align: center;
+
+    &:before {
+        @include single-box-shadow(rgba(255, 255, 255, 0.7), 0, 1px, 1px, 1px, false);
+
+        border-top: 1px solid #b3b3b3;
+        content: "";
+        display: "block";
+        height: 1px;
+        left: 5%;
+        position: absolute;
+        top: 50%;
+        width: 90%;
+        z-index: 1;
+    }
+
+    .h-divider-text {
+        background: #f0f0f0;
+        padding: 0 2em;
+        position: relative;
+        z-index: 2;
+    }
+}

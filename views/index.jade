@@ -1,13 +1,32 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .account
+    h1.account-title= title
 
-  form(action='/users', method='post')
-    fieldset
-      input(type='text', name='fName', value='First Name')
-      input(type='text', name='lName', value='Last name')
-      input(type='text', name='email', value='email')
-      input(type='text', name='password', value='password')
-      input(type='submit')
+    .account-login
+      form
+        ul.form-fields
+          li: input.text-input(type='text', name='email', placeholder='email')
+          li: input.text-input(type='text', name='password', placeholder='password')
+          li: input.btn.btn--positive(type='submit', value="Log In")
+
+      .h-divider: em.h-divider-text or
+
+      a.btn.btn--positive Sign Up
+
+    .account-signup
+      form(action='/users', method='post')
+        ul.form-fields
+          li: input.text-input(type='text', name='fName', placeholder='First Name')
+          li: input.text-input(type='text', name='lName', placeholder='Last name')
+          li: input.text-input(type='text', name='email', placeholder='email')
+          li: input.text-input(type='text', name='password', placeholder='password')
+          li: input.btn.btn--positive(type='submit', value="Create New Account")
+
+      p.account-no-signup Already have an account?&nbsp;
+        a(href='#') Log in.
+
+  script(src='js/lib/jquery-2.0.0.js')
+  script(src='js/lib/underscore.js')
+  script(src='js/lib/backbone.js')
