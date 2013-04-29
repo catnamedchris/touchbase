@@ -3514,27 +3514,23 @@ body {
   font-family: 'Pacifico', cursive;
 }
 /* line 23, ../scss/ui/account.scss */
-.account .account-signup {
-  display: none;
-}
-/* line 27, ../scss/ui/account.scss */
 .account .account-no-signup {
   margin-top: 1.5em;
 }
-/* line 31, ../scss/ui/account.scss */
+/* line 27, ../scss/ui/account.scss */
 .account .text-input {
   border-radius: 4px;
   padding: 0.5em;
   width: 50%;
 }
 
-/* line 38, ../scss/ui/account.scss */
+/* line 34, ../scss/ui/account.scss */
 .h-divider {
   padding: 1em 0;
   position: relative;
   text-align: center;
 }
-/* line 43, ../scss/ui/account.scss */
+/* line 39, ../scss/ui/account.scss */
 .h-divider:before {
   -webkit-box-shadow: 0 1px 1px 1px rgba(255, 255, 255, 0.7);
   -moz-box-shadow: 0 1px 1px 1px rgba(255, 255, 255, 0.7);
@@ -3549,7 +3545,7 @@ body {
   width: 90%;
   z-index: 1;
 }
-/* line 57, ../scss/ui/account.scss */
+/* line 53, ../scss/ui/account.scss */
 .h-divider .h-divider-text {
   background: #f0f0f0;
   padding: 0 2em;

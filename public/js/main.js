@@ -12,7 +12,7 @@ require.config({
     , exports: 'Backbone'
     }
   , 'app': {
-      deps: [ 'underscore', 'backbone' ]
+      deps: [ 'backbone' ]
     }
   }
 });

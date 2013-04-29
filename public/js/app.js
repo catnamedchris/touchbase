@@ -1,10 +1,7 @@
-define([
-  'views/accountLogin'
-, 'views/accountSignup'
-], function( AccountLoginView, AccountSignupView ) {
+define([ 'views/account' ], function( AccountView ) {
   var App = function() {
-    var accountLoginView = new AccountLoginView()
-      , accountSignupView = new AccountSignupView();
+    this.Views = {};
+    this.Views.accountView = new AccountView();
   };
   return App;
 });
