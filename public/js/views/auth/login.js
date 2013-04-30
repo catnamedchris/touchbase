@@ -1,4 +1,7 @@
-define([ 'text!templates/auth/login.html', 'models/auth/login' ], function( template, LoginModel ) {
+define([
+  'text!templates/auth/login.html'
+, 'models/auth/login'
+], function( template, LoginModel ) {
   var LoginView = Backbone.View.extend({
     tagName: 'div'
   , className: 'account-login'
