@@ -28,8 +28,8 @@ app.configure('development', function(){
 });
 
 //app.get('/', routes.index);
-app.get('/users', user.list);
-app.post('/users', user.signup);
+app.post('/users', user.login);
+//app.post('/users', user.signup);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

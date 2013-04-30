@@ -1,5 +1,5 @@
-define([ 'text!templates/account-signup.html' ], function( template ) {
-  var AccountSignupView = Backbone.View.extend({
+define([ 'text!templates/auth/signup.html' ], function( template ) {
+  var SignupView = Backbone.View.extend({
     tagName: 'div'
   , className: 'account-signup'
   , template: _.template( template )
@@ -16,9 +16,9 @@ define([ 'text!templates/account-signup.html' ], function( template ) {
     }
   , toggleForm: function( evt ) {
       evt.preventDefault();
-      this.parent.trigger('toggleForm', this);
+      this.parent.Pubsub.trigger('toggleForm', this);
     }
   });
 
-  return AccountSignupView;
+  return SignupView;
 });

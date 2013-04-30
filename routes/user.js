@@ -1,10 +1,14 @@
-
-/*
- * GET users listing.
- */
-
-exports.list = function(req, res){
-  res.send("respond with a resource");
+exports.login = function(req, res){
+  console.log(
+    'Attempting to log in with email: "' + req.body.email
+    + '" and password: "' + req.body.password + '"'
+  );
+  // TODO: Implement login authentication.
+  console.log('Login successful.');
+  res.send(200, {
+    email: req.body.email
+  , password: req.body.password
+  });
 };
 
 exports.signup = function(req, res) {
