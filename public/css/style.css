@@ -3495,8 +3495,8 @@ body {
   background-color: #999;
 }
 
-/* line 6, ../scss/ui/account.scss */
-.account {
+/* line 6, ../scss/ui/auth.scss */
+.auth {
   -webkit-box-shadow: 0 0 100px 2px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 0 100px 2px rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 100px 2px rgba(0, 0, 0, 0.4);
@@ -3507,30 +3507,30 @@ body {
   text-align: center;
   width: 60%;
 }
-/* line 16, ../scss/ui/account.scss */
-.account .account-title {
+/* line 16, ../scss/ui/auth.scss */
+.auth .auth-title {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   color: #333;
   font-family: 'Pacifico', cursive;
 }
-/* line 23, ../scss/ui/account.scss */
-.account .account-no-signup {
+/* line 23, ../scss/ui/auth.scss */
+.auth .auth-no-signup {
   margin-top: 1.5em;
 }
-/* line 27, ../scss/ui/account.scss */
-.account .text-input {
+/* line 27, ../scss/ui/auth.scss */
+.auth .text-input {
   border-radius: 4px;
   padding: 0.5em;
   width: 50%;
 }
 
-/* line 34, ../scss/ui/account.scss */
+/* line 34, ../scss/ui/auth.scss */
 .h-divider {
   padding: 1em 0;
   position: relative;
   text-align: center;
 }
-/* line 39, ../scss/ui/account.scss */
+/* line 39, ../scss/ui/auth.scss */
 .h-divider:before {
   -webkit-box-shadow: 0 1px 1px 1px rgba(255, 255, 255, 0.7);
   -moz-box-shadow: 0 1px 1px 1px rgba(255, 255, 255, 0.7);
@@ -3545,7 +3545,7 @@ body {
   width: 90%;
   z-index: 1;
 }
-/* line 53, ../scss/ui/account.scss */
+/* line 53, ../scss/ui/auth.scss */
 .h-divider .h-divider-text {
   background: #f0f0f0;
   padding: 0 2em;

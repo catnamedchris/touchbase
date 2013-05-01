@@ -1,9 +1,9 @@
-define([ 'views/auth/account' ], function( AccountView ) {
+define([ 'views/auth/auth' ], function( AuthView ) {
   var App = function() {
     this.Pubsub = _.extend({}, Backbone.Events);
 
     this.Views = {};
-    this.Views.accountView = new AccountView({ Pubsub: this.Pubsub });
+    this.Views.authView = new AuthView({ Pubsub: this.Pubsub });
 
   };
   return App;

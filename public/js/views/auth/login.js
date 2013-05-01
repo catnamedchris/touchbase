@@ -4,7 +4,7 @@ define([
 ], function( template, LoginModel ) {
   var LoginView = Backbone.View.extend({
     tagName: 'div'
-  , className: 'account-login'
+  , className: 'auth-login'
   , template: _.template( template )
   , events: {
       'click .toggle-signup': 'toggleForm'
