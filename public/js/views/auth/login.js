@@ -29,8 +29,8 @@ define([
   , submitForm: function( evt ) {
       evt.preventDefault();
       this.model.set({
-        email: this.$el.find( 'input[type=email]' ).val()
-      , password: this.$el.find( 'input[name=password]' ).val()
+        email: this.$el.find( '#email' ).val()
+      , password: this.$el.find( '#password' ).val()
       });
 
       var self = this;

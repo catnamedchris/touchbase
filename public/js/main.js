@@ -1,9 +1,9 @@
 require.config({
   paths: {
-    jquery: 'lib/jquery-2.0.0'
-  , underscore: 'lib/underscore'
-  , backbone: 'lib/backbone'
-  , text: 'lib/require/text'
+    jquery: 'lib/vendor/jquery-2.0.0'
+  , underscore: 'lib/vendor/underscore'
+  , backbone: 'lib/vendor/backbone'
+  , text: 'lib/vendor/require/text'
   }
 , shim: {
     'underscore': { exports: '_' }

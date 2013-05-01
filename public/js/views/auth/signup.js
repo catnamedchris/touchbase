@@ -29,10 +29,10 @@ define([
   , submitForm: function( evt ) {
       evt.preventDefault();
       this.model.set({
-        fName: this.$el.find( 'input[name=fName]' ).val()
-      , lName: this.$el.find( 'input[name=lName]' ).val()
-      , email: this.$el.find( 'input[name=email]' ).val()
-      , password: this.$el.find( 'input[name=password]' ).val()
+        fName: this.$el.find( '#fName' ).val()
+      , lName: this.$el.find( '#lName' ).val()
+      , email: this.$el.find( '#email' ).val()
+      , password: this.$el.find( '#password' ).val()
       });
 
       var self = this;
