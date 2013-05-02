@@ -3,33 +3,26 @@
 
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 
-.auth {
-    @include single-box-shadow(rgba(0, 0, 0, 0.4), 0, 0, 100px, 2px, false);
-
-    background-color: #f0f0f0;
-    border-radius: 6px;
-    margin: 10% auto 0;
-    padding: 1.5em;
+.login, .signup {
+    margin: 10% auto;
     text-align: center;
-    width: 60%;
-
-    .auth-title {
-        @include single-text-shadow(1px, 1px, 2px, false, rgba(0, 0, 0, 0.5));
-
-        color: #333;
-        font-family: 'Pacifico', cursive;
-    }
-
-    .auth-no-signup {
-        margin-top: 1.5em;
-    }
+    width: 75%;
 
     .text-input {
         border-radius: 4px;
         padding: 0.5em;
-        width: 50%;
+        width: 80%;
     }
 }
+
+.login .title {
+    @include single-text-shadow(1px, 1px, 2px, false, rgba(0, 0, 0, 0.5));
+
+    color: #333;
+    font-family: 'Pacifico', cursive;
+}
+
+.signup .no-signup { margin-top: 1.5em; }
 
 .h-divider {
     padding: 1em 0;

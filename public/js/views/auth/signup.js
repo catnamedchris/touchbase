@@ -4,14 +4,13 @@ define([
 ], function( template, SignupModel ) {
   var SignupView = Backbone.View.extend({
     tagName: 'div'
-  , className: 'auth-signup'
+  , className: 'signup'
   , template: _.template( template )
   , events: {
-      'click .toggle-login': 'toggleForm'
-    , 'submit': 'submitForm'
+      'submit': 'submitForm'
     }
   , initialize: function( options ) {
-      this.parent = options.parent;
+      this.Pubsub = options.Pubsub;
       this.model = new SignupModel();
       this.model.on('invalid', function( model, err ) {
         console.log( err );
@@ -21,10 +20,6 @@ define([
       this.$el.html( this.template() );
       this.delegateEvents();
       return this;
-    }
-  , toggleForm: function( evt ) {
-      evt.preventDefault();
-      this.parent.Pubsub.trigger('toggleForm', this);
     }
   , submitForm: function( evt ) {
       evt.preventDefault();
@@ -46,8 +41,7 @@ define([
           console.log( 'Signup successful.' );
           console.dir( res );
 
-          self.remove();
-          self.parent.Pubsub.trigger( 'loggedIn' );
+          self.Pubsub.trigger( 'loggedIn' );
         }
       });
 
