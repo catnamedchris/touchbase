@@ -1,40 +1,36 @@
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 /* line 6, ../../scss/ui/auth.scss */
-.auth {
-  -webkit-box-shadow: 0 0 100px 2px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0 0 100px 2px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 100px 2px rgba(0, 0, 0, 0.4);
-  background-color: #f0f0f0;
-  border-radius: 6px;
-  margin: 10% auto 0;
-  padding: 1.5em;
+.login, .signup {
+  margin: 10% auto;
   text-align: center;
-  width: 60%;
+  width: 75%;
 }
-/* line 16, ../../scss/ui/auth.scss */
-.auth .auth-title {
+/* line 11, ../../scss/ui/auth.scss */
+.login .text-input, .signup .text-input {
+  border-radius: 4px;
+  padding: 0.5em;
+  width: 80%;
+}
+
+/* line 18, ../../scss/ui/auth.scss */
+.login .title {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   color: #333;
   font-family: 'Pacifico', cursive;
 }
-/* line 23, ../../scss/ui/auth.scss */
-.auth .auth-no-signup {
+
+/* line 25, ../../scss/ui/auth.scss */
+.signup .no-signup {
   margin-top: 1.5em;
 }
-/* line 27, ../../scss/ui/auth.scss */
-.auth .text-input {
-  border-radius: 4px;
-  padding: 0.5em;
-  width: 50%;
-}
 
-/* line 34, ../../scss/ui/auth.scss */
+/* line 27, ../../scss/ui/auth.scss */
 .h-divider {
   padding: 1em 0;
   position: relative;
   text-align: center;
 }
-/* line 39, ../../scss/ui/auth.scss */
+/* line 32, ../../scss/ui/auth.scss */
 .h-divider:before {
   -webkit-box-shadow: 0 1px 1px 1px rgba(255, 255, 255, 0.7);
   -moz-box-shadow: 0 1px 1px 1px rgba(255, 255, 255, 0.7);
@@ -49,7 +45,7 @@
   width: 90%;
   z-index: 1;
 }
-/* line 53, ../../scss/ui/auth.scss */
+/* line 46, ../../scss/ui/auth.scss */
 .h-divider .h-divider-text {
   background: #f0f0f0;
   padding: 0 2em;
