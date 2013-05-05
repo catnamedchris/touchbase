@@ -16,13 +16,16 @@
 }
 
 .login .title {
-    @include single-text-shadow(1px, 1px, 2px, false, rgba(0, 0, 0, 0.5));
+    @include single-text-shadow(1px, 1px, 2px, false, rgba(0, 0, 0, 0.8));
 
-    color: #333;
+    color: $baseColor2;
     font-family: 'Pacifico', cursive;
 }
 
-.signup .no-signup { margin-top: 1.5em; }
+.signup .no-signup {
+    color: #fff;
+    margin-top: 1.5em;
+}
 
 .h-divider {
     padding: 1em 0;
@@ -30,9 +33,9 @@
     text-align: center;
 
     &:before {
-        @include single-box-shadow(rgba(255, 255, 255, 0.7), 0, 1px, 1px, 1px, false);
+        @include single-box-shadow($baseColor2, 0, 1px, 1px, 0, false);
 
-        border-top: 1px solid #b3b3b3;
+        border-top: 1px solid $baseColor5;
         content: "";
         display: "block";
         height: 1px;
@@ -44,7 +47,8 @@
     }
 
     .h-divider-text {
-        background: #f0f0f0;
+        background: $baseColor1;
+        color: #fff;
         padding: 0 2em;
         position: relative;
         z-index: 2;
