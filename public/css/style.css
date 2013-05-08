@@ -3520,14 +3520,18 @@ body {
   color: #fff;
   margin-top: 1.5em;
 }
-
 /* line 30, ../scss/ui/_auth.scss */
+.signup .no-signup .toggle-login, .signup .no-signup .toggle-login:hover {
+  color: #7c8aa4;
+}
+
+/* line 35, ../scss/ui/_auth.scss */
 .h-divider {
   padding: 1em 0;
   position: relative;
   text-align: center;
 }
-/* line 35, ../scss/ui/_auth.scss */
+/* line 40, ../scss/ui/_auth.scss */
 .h-divider:before {
   -webkit-box-shadow: 0 1px 1px 0 #7c8aa4;
   -moz-box-shadow: 0 1px 1px 0 #7c8aa4;
@@ -3542,7 +3546,7 @@ body {
   width: 90%;
   z-index: 1;
 }
-/* line 49, ../scss/ui/_auth.scss */
+/* line 54, ../scss/ui/_auth.scss */
 .h-divider .h-divider-text {
   background: #313948;
   color: #fff;

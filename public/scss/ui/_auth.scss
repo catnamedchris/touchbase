@@ -25,6 +25,11 @@
 .signup .no-signup {
     color: #fff;
     margin-top: 1.5em;
+
+    & .toggle-login,
+    & .toggle-login:hover {
+        color: $baseColor2;
+    }
 }
 
 .h-divider {
