@@ -14,39 +14,21 @@ define([
       should = chai.should();
 
       mocha.setup({ ui: 'bdd' });
+
+      return this;
     };
 
     this.run = function() {
-      describe('Model :: Login', function() {
-        var loginModel;
+      var specs = [];
+      specs.push('../../test/models/login.test');
+      specs.push('../../test/models/signup.test');
 
-        beforeEach(function( done ) {
-          require([ 'models/auth/login' ], function( LoginModel ){
-            loginModel = new LoginModel();
-            console.dir(loginModel);
-            done();
-          });
-        });
-
-        describe('Creation', function() {
-          it('should exist', function() {
-            loginModel.should.exist;
-          });
-
-          it('should have the correct URL attribute', function() {
-            loginModel.should.have.property('url').equal('/login');
-          });
-        });
-
-        describe('Validation', function() {
-          it('should return an error for invalid email', function() {
-            var error = loginModel.validate( loginModel.attributes );
-            error.should.exist;
-          });
+      require(specs, function() {
+        $(function() {
+          mocha.run();
         });
       });
 
-      mocha.run();
     };
   };
 

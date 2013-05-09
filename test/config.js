@@ -21,6 +21,5 @@ require.config({
 
 require([ '../../test/app.test' ], function( Tester ) {
   var tester = new Tester();
-  tester.init();
-  tester.run();
+  tester.init().run();
 });
