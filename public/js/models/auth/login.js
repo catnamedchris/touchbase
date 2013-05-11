@@ -6,7 +6,6 @@ define([], function() {
     , password: ''
     }
   , validate: function( attrs, options ) {
-      // TODO: Make this better, stupid.
       if ( !attrs.email || !attrs.password ) {
         return 'Email and password cannot be empty.';
       }

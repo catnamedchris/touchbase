@@ -7,6 +7,8 @@ require.config({
   , text: 'lib/vendor/require/text'
   , chai: '../../node_modules/chai/chai'
   , mocha: '../../node_modules/mocha/mocha'
+  , sinon: '../../test/lib/vendor/sinon-1.7.1'
+  , sinonChai: '../../node_modules/sinon-chai/lib/sinon-chai'
   }
 , shim: {
     'underscore': { exports: '_' }
@@ -16,6 +18,8 @@ require.config({
     }
   , 'chai': { exports: 'chai' }
   , 'mocha': { exports: 'mocha' }
+  , 'sinon': { exports: 'sinon' }
+  , 'sinonChai': { exports: 'sinonChai' }
   }
 });
 

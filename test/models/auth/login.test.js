@@ -8,7 +8,7 @@ describe('Model :: Login', function() {
     });
   });
 
-  describe('Creation', function() {
+  describe('initialize()', function() {
     it('should exist', function() {
       loginModel.should.exist;
     });
@@ -26,22 +26,22 @@ describe('Model :: Login', function() {
     });
   });
 
-  describe('Validation', function() {
+  describe('validate()', function() {
     it('should invalidate when attempting to set an empty email', function() {
-      loginModel.set('email', '');
-      loginModel.set('password', 'password');
+      loginModel.set( 'email', '' );
+      loginModel.set( 'password', 'password' );
       loginModel.isValid().should.be.false;
     });
 
     it('should invalidate when attempting to set an empty password', function() {
-      loginModel.set('email', 'email');
-      loginModel.set('password', '');
+      loginModel.set( 'email', 'email' );
+      loginModel.set( 'password', '' );
       loginModel.isValid().should.be.false;
     });
 
     it('should validate when setting both a non-empty email and password', function() {
-      loginModel.set('email', 'email');
-      loginModel.set('password', 'password');
+      loginModel.set( 'email', 'email' );
+      loginModel.set( 'password', 'password' );
       loginModel.isValid().should.be.true;
     });
   });

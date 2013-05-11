@@ -12,8 +12,8 @@ define([
   , initialize: function( options ) {
       this.Pubsub = options.Pubsub;
       this.model = new SignupModel();
-      this.model.on('invalid', function( model, err ) {
-        console.log( err );
+      this.model.on('invalid', function( model, errors ) {
+        console.log( errors );
       });
     }
   , render: function() {
