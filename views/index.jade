@@ -1,32 +1,27 @@
 extends layout
 
 block content
-  .account
-    h1.account-title= title
+  .login
+    h1.title= title
 
-    .account-login
-      form
-        ul.form-fields
-          li: input.text-input(type='text', name='email', placeholder='email')
-          li: input.text-input(type='text', name='password', placeholder='password')
-          li: input.btn.btn--positive(type='submit', value="Log In")
+    form(action='/login', method='post')
+      ul.form-fields
+        li: input.text-input(type='email', name='email', placeholder='E-mail')
+        li: input.text-input(type='text', name='password', placeholder='Password')
+        li: input.btn.btn--positive(type='submit', value="Log In")
 
-      .h-divider: em.h-divider-text or
+    .h-divider: em.h-divider-text or
 
-      a.btn.btn--positive Sign Up
+    a.btn.btn--positive.toggle-signup(href='#') Sign Up
 
-    .account-signup
-      form(action='/users', method='post')
-        ul.form-fields
-          li: input.text-input(type='text', name='fName', placeholder='First Name')
-          li: input.text-input(type='text', name='lName', placeholder='Last name')
-          li: input.text-input(type='text', name='email', placeholder='email')
-          li: input.text-input(type='text', name='password', placeholder='password')
-          li: input.btn.btn--positive(type='submit', value="Create New Account")
+  .signup
+    form(action='/user', method='post')
+      ul.form-fields
+        li: input#fName.text-input(type='text', name='fName', placeholder='First name')
+        li: input#lName.text-input(type='text', name='lName', placeholder='Last name')
+        li: input#email.text-input(type='email', name='email', placeholder='E-mail')
+        li: input#password.text-input(type='text', name='password', placeholder='Password')
+        li: input.btn.btn--positive(type='submit', value='Create New Account')
 
-      p.account-no-signup Already have an account?&nbsp;
-        a(href='#') Log in.
-
-  script(src='js/lib/jquery-2.0.0.js')
-  script(src='js/lib/underscore.js')
-  script(src='js/lib/backbone.js')
+    p.no-signup Already have an account?&nbsp;
+      a.toggle-login(href='#') Log in.
