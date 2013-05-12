@@ -59,3 +59,7 @@
         z-index: 2;
     }
 }
+
+.text-input.error {
+    border: 3px solid $inputErrColor;
+}

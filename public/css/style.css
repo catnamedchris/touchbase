@@ -3554,3 +3554,8 @@ body {
   position: relative;
   z-index: 2;
 }
+
+/* line 63, ../scss/ui/_auth.scss */
+.text-input.error {
+  border: 3px solid rgba(255, 0, 0, 0.5);
+}

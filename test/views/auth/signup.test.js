@@ -135,6 +135,7 @@ describe('View :: Signup', function() {
     });
 
     it('should show an error notification when attempting to submit an invalid first name');
+
     it('should show an error notification when attempting to submit an invalid last name');
     it('should show an error notification when attempting to submit an invalid email');
     it('should show an error notification when attempting to submit an invalid password');
