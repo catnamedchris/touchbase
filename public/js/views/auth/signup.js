@@ -4,7 +4,7 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
   , events: {
       'submit': 'submitForm'
     , 'click .toggle-login': 'toggleView'
-    , 'keypress .text-input': 'validateInput'
+    //, 'keypress .text-input': 'validateInput'
     }
   , initialize: function( options ) {
       var self = this;
@@ -68,6 +68,7 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
       , success: function( model, res, options ) {
           console.log( 'Signup successful.' );
           console.dir( res );
+          window.location = '/user/' + res.fName;
         }
       });
     }
