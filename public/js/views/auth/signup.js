@@ -1,13 +1,9 @@
-define([
-  'text!templates/auth/signup.html'
-, 'models/auth/signup'
-], function( template, SignupModel ) {
+define([ 'js/models/auth/signup' ], function( SignupModel ) {
   var SignupView = Backbone.View.extend({
-    tagName: 'div'
-  , className: 'signup'
-  , template: _.template( template )
+    el: '.signup'
   , events: {
       'submit': 'submitForm'
+    , 'click .toggle-login': 'toggleView'
     , 'keypress .text-input': 'validateInput'
     }
   , initialize: function( options ) {
@@ -16,22 +12,31 @@ define([
       this.Pubsub = options.Pubsub;
       this.model = new SignupModel();
       this.model.on('invalid', function( model, errors ) {
-        console.dir(model.attributes);
-        for ( err in errors.fields ) {
+        for ( var err in errors.fields ) {
           if ( errors.fields[ err ]  !== '' ) {
-            self.$el.find( '#' + err ).addClass( 'error' );
-            self.$el.find( '.form-fields' ).append( '<p>' + errors.fields[ err ] + '</p>');
-          }
-          if ( (errors.fields[ err ] instanceof Array) && errors.fields[ err ].length ) {
-            self.$el.find( '#' + err ).addClass( 'error' );
-            self.$el.find( '.form-fields' ).append( '<p>' + errors.fields[ err ] + '</p>');
+            if ( (errors.fields[ err ] instanceof Array) && errors.fields[ err ].length ) {
+              self.$el.find( '#' + err ).addClass( 'error' );
+              _.each( errors.fields[ err ], function( msg ) {
+                self.$el.find( '.errors' ).append( '<p class="error-msg">' + msg + '</p>' );
+              });
+            } else {
+              self.$el.find( '#' + err ).addClass( 'error' );
+              self.$el.find( '.errors' ).append( '<p class="error-msg">' + errors.fields[ err ] + '</p>' );
+            }
           }
         }
       });
     }
   , render: function() {
-      this.$el.html( this.template() );
-      this.delegateEvents();
+      this.$el.show();
+      return this;
+    }
+  , hide: function() {
+      this.$el.hide();
+      return this;
+    }
+  , toggleView: function() {
+      this.Pubsub.trigger( 'toggleLogin' );
       return this;
     }
   , validateInput: function( evt ) {
@@ -63,8 +68,6 @@ define([
       , success: function( model, res, options ) {
           console.log( 'Signup successful.' );
           console.dir( res );
-
-          self.Pubsub.trigger( 'loggedIn' );
         }
       });
     }

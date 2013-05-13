@@ -28,8 +28,9 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.post('/login', auth.login);
-app.post('/signup', auth.signup);
+app.get('/', routes.index);
+//app.post('/login', auth.login);
+app.post('/user', auth.signup);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

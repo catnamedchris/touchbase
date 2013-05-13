@@ -22,6 +22,10 @@
     font-family: 'Pacifico', cursive;
 }
 
+.signup {
+    display: none;
+}
+
 .signup .no-signup {
     color: #fff;
     margin-top: 1.5em;
@@ -62,4 +66,13 @@
 
 .text-input.error {
     border: 3px solid $inputErrColor;
+}
+
+.errors {
+    color: #fff;
+    margin-bottom: 1.5em;
+
+    .error-msg {
+        margin-bottom: 0;
+    }
 }

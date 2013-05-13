@@ -1,6 +1,6 @@
 define([], function() {
   var SignupModel = Backbone.Model.extend({
-    url: '/signup'
+    url: '/user'
   , defaults: {
       fName: ''
     , lName: ''

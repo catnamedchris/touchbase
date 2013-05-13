@@ -1,13 +1,9 @@
-define([
-  'text!templates/auth/login.html'
-, 'models/auth/login'
-], function( template, LoginModel ) {
+define([ 'js/models/auth/login' ], function( LoginModel ) {
   var LoginView = Backbone.View.extend({
-    tagName: 'div'
-  , className: 'login'
-  , template: _.template( template )
+    el: '.login'
   , events: {
       'submit': 'submitForm'
+    , 'click .toggle-signup': 'toggleView'
     }
   , initialize: function( options ) {
       this.Pubsub = options.Pubsub;
@@ -17,8 +13,14 @@ define([
       });
     }
   , render: function() {
-      this.$el.html( this.template() );
-      this.delegateEvents();
+      this.$el.show();
+      return this;
+    }
+  , hide: function() {
+      this.$el.hide();
+    }
+  , toggleView: function() {
+      this.Pubsub.trigger( 'toggleSignup' );
       return this;
     }
   , submitForm: function( evt ) {
@@ -38,8 +40,6 @@ define([
       , success: function( model, res, options ) {
           console.log( 'Login successful.' );
           console.log( res );
-
-          self.Pubsub.trigger( 'loggedIn' );
         }
       });
     }

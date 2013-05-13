@@ -3516,22 +3516,27 @@ body {
 }
 
 /* line 25, ../scss/ui/_auth.scss */
+.signup {
+  display: none;
+}
+
+/* line 29, ../scss/ui/_auth.scss */
 .signup .no-signup {
   color: #fff;
   margin-top: 1.5em;
 }
-/* line 30, ../scss/ui/_auth.scss */
+/* line 34, ../scss/ui/_auth.scss */
 .signup .no-signup .toggle-login, .signup .no-signup .toggle-login:hover {
   color: #7c8aa4;
 }
 
-/* line 35, ../scss/ui/_auth.scss */
+/* line 39, ../scss/ui/_auth.scss */
 .h-divider {
   padding: 1em 0;
   position: relative;
   text-align: center;
 }
-/* line 40, ../scss/ui/_auth.scss */
+/* line 44, ../scss/ui/_auth.scss */
 .h-divider:before {
   -webkit-box-shadow: 0 1px 1px 0 #7c8aa4;
   -moz-box-shadow: 0 1px 1px 0 #7c8aa4;
@@ -3546,7 +3551,7 @@ body {
   width: 90%;
   z-index: 1;
 }
-/* line 54, ../scss/ui/_auth.scss */
+/* line 58, ../scss/ui/_auth.scss */
 .h-divider .h-divider-text {
   background: #313948;
   color: #fff;
@@ -3555,7 +3560,17 @@ body {
   z-index: 2;
 }
 
-/* line 63, ../scss/ui/_auth.scss */
+/* line 67, ../scss/ui/_auth.scss */
 .text-input.error {
   border: 3px solid rgba(255, 0, 0, 0.5);
+}
+
+/* line 71, ../scss/ui/_auth.scss */
+.errors {
+  color: #fff;
+  margin-bottom: 1.5em;
+}
+/* line 75, ../scss/ui/_auth.scss */
+.errors .error-msg {
+  margin-bottom: 0;
 }

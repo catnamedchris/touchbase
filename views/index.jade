@@ -5,6 +5,7 @@ block content
     h1.title= title
 
     form(action='/login', method='post')
+      .errors
       ul.form-fields
         li: input.text-input(type='email', name='email', placeholder='E-mail')
         li: input.text-input(type='text', name='password', placeholder='Password')
@@ -16,6 +17,7 @@ block content
 
   .signup
     form(action='/user', method='post')
+      .errors
       ul.form-fields
         li: input#fName.text-input(type='text', name='fName', placeholder='First name')
         li: input#lName.text-input(type='text', name='lName', placeholder='Last name')
@@ -25,3 +27,27 @@ block content
 
     p.no-signup Already have an account?&nbsp;
       a.toggle-login(href='#') Log in.
+
+  script(src='js/lib/vendor/require/require.js')
+  script(src='js/lib/vendor/jquery-2.0.0.js')
+  script(src='js/lib/vendor/underscore.js')
+  script(src='js/lib/vendor/backbone.js')
+  script
+    require([
+      'js/views/auth/login'
+    , 'js/views/auth/signup'
+    ], function( LoginView, SignupView ) {
+      var Pubsub = _.extend( {}, Backbone.Events )
+        , loginView = new LoginView({ Pubsub: Pubsub })
+        , signupView = new SignupView({ Pubsub: Pubsub });
+
+      Pubsub.on('toggleSignup', function() {
+        loginView.hide();
+        signupView.render();
+      });
+
+      Pubsub.on('toggleLogin', function() {
+        signupView.hide();
+        loginView.render();
+      });
+    });
