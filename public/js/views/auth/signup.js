@@ -4,7 +4,6 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
   , events: {
       'submit': 'submitForm'
     , 'click .toggle-login': 'toggleView'
-    //, 'keypress .text-input': 'validateInput'
     }
   , initialize: function( options ) {
       var self = this;
@@ -12,6 +11,8 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
       this.Pubsub = options.Pubsub;
       this.model = new SignupModel();
       this.model.on('invalid', function( model, errors ) {
+        self.$el.find( '.errors' ).empty();
+        self.$el.find( 'input' ).removeClass( 'error' );
         for ( var err in errors.fields ) {
           if ( errors.fields[ err ]  !== '' ) {
             if ( (errors.fields[ err ] instanceof Array) && errors.fields[ err ].length ) {
@@ -19,7 +20,7 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
               _.each( errors.fields[ err ], function( msg ) {
                 self.$el.find( '.errors' ).append( '<p class="error-msg">' + msg + '</p>' );
               });
-            } else {
+            } else if ( !(errors.fields[ err ] instanceof Array) ){
               self.$el.find( '#' + err ).addClass( 'error' );
               self.$el.find( '.errors' ).append( '<p class="error-msg">' + errors.fields[ err ] + '</p>' );
             }
@@ -39,18 +40,9 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
       this.Pubsub.trigger( 'toggleLogin' );
       return this;
     }
-  , validateInput: function( evt ) {
-      var attrs = {}
-        , id = '#' + evt.currentTarget.id
-        , $field = this.$el.find( id )
-        , value = $field.val();
-
-      attrs[ $field.attr('name') ] = value;
-
-      this.model.set( attrs, { validate: true } );
-    }
   , submitForm: function( evt ) {
       evt.preventDefault();
+      this.$el.find( '.errors' ).empty();
       this.model.set({
         fName: this.$el.find( '#fName' ).val()
       , lName: this.$el.find( '#lName' ).val()
