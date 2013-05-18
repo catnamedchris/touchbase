@@ -7,8 +7,8 @@ block content
     form(action='/login', method='post')
       .errors
       ul.form-fields
-        li: input.text-input(type='email', name='email', placeholder='E-mail')
-        li: input.text-input(type='text', name='password', placeholder='Password')
+        li: input#username.text-input(type='text', name='username', placeholder='Username')
+        li: input#password.text-input(type='password', name='password', placeholder='Password')
         li: input.btn.btn--positive(type='submit', value="Log In")
 
     .h-divider: em.h-divider-text or
@@ -19,10 +19,9 @@ block content
     form(action='/user', method='post')
       .errors
       ul.form-fields
-        li: input#fName.text-input(type='text', name='fName', placeholder='First name')
-        li: input#lName.text-input(type='text', name='lName', placeholder='Last name')
         li: input#email.text-input(type='email', name='email', placeholder='E-mail')
-        li: input#password.text-input(type='text', name='password', placeholder='Password')
+        li: input#username.text-input(type='text', name='username', placeholder='Username')
+        li: input#password.text-input(type='password', name='password', placeholder='Password')
         li: input.btn.btn--positive(type='submit', value='Create New Account')
 
     p.no-signup Already have an account?&nbsp;

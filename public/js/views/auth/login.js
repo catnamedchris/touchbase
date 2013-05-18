@@ -26,7 +26,7 @@ define([ 'js/models/auth/login' ], function( LoginModel ) {
   , submitForm: function( evt ) {
       evt.preventDefault();
       this.model.set({
-        email: this.$el.find( '#email' ).val()
+        username: this.$el.find( '#username' ).val()
       , password: this.$el.find( '#password' ).val()
       });
 
@@ -35,7 +35,7 @@ define([ 'js/models/auth/login' ], function( LoginModel ) {
       this.model.save(attrs, {
         error: function( model, res, options ) {
           console.log( 'Login failed.' );
-          console.log( res.responseText );
+          console.log( res);
         }
       , success: function( model, res, options ) {
           console.log( 'Login successful.' );

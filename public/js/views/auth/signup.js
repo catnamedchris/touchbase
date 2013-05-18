@@ -52,9 +52,8 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
   , submitForm: function( evt ) {
       evt.preventDefault();
       this.model.set({
-        fName: this.$el.find( '#fName' ).val()
-      , lName: this.$el.find( '#lName' ).val()
-      , email: this.$el.find( '#email' ).val()
+        email: this.$el.find( '#email' ).val()
+      , username: this.$el.find( '#username' ).val()
       , password: this.$el.find( '#password' ).val()
       });
 

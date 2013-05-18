@@ -1,8 +1,7 @@
 var mongoose = require( 'mongoose' );
 
 var UserSchema = mongoose.Schema({
-      fName: String
-    , lName: String
+      username: String 
     , email: String
     , password: String
     });
@@ -13,7 +12,7 @@ exports.login = function( req, res ) {
   db.on( 'error', console.error.bind(console, 'connection error:') );
   db.once('open', function(){
       var User = mongoose.model('User', UserSchema);
-      User.find({ 'email': req.body.email}, function(err, docs) {
+      User.find({ 'username': req.body.username}, function(err, docs) {
         mongoose.connection.close();
         if (err) {console.log('err');console.log(err);}
         else {

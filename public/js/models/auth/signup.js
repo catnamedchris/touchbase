@@ -14,8 +14,7 @@ define([], function() {
 
       var Errors = function() {
         this.fields = {
-          fName: ''
-        , lName: ''
+          username: '' 
         , email: ''
         , password: []
         };
@@ -32,11 +31,8 @@ define([], function() {
       };
       var errors = new Errors();
 
-      if ( !name.test(attrs.fName) ) {
-        errors.push( 'fName', 'First name cannot be empty.' );
-      }
-      if ( !name.test(attrs.lName) ) {
-        errors.push( 'lName', 'Last name cannot be empty.' );
+      if ( !name.test(attrs.username)){
+        errors.push( 'email', 'Email is invalid.' );
       }
       if ( !email.test(attrs.email) ) {
         errors.push( 'email', 'Email is invalid.' );

@@ -2,12 +2,12 @@ define([], function() {
   var LoginModel = Backbone.Model.extend({
     url: '/login'
   , defaults: {
-      email: ''
+      username: ''
     , password: ''
     }
   , validate: function( attrs, options ) {
-      if ( !attrs.email || !attrs.password ) {
-        return 'Email and password cannot be empty.';
+      if ( !attrs.username || !attrs.password ) {
+        return 'Username and password cannot be empty.';
       }
     }
   });

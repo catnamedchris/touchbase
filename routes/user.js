@@ -7,20 +7,19 @@ exports.create = function( req, res ) {
   );
   db.once('open', function() {
     var UserSchema = mongoose.Schema({
-      fName: String
-    , lName: String
+      username: String
     , email: String
     , password: String
     });
     var User = mongoose.model( 'User', UserSchema );
     var userData = {
-      fName: req.body.fName
-    , lName: req.body.lName
+      username: req.body.username 
     , email: req.body.email
     , password: req.body.password
     };
     var newUser = new User( userData );
     newUser.save(function( err ) {
+      mongoose.connection.close()
       if (err){
         console.log( err );
       }
