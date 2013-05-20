@@ -58,8 +58,9 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
         }
       , success: function( model, res, options ) {
           console.log( 'Signup successful.' );
+          self.$el.find( 'input' ).removeClass( 'error' );
           console.dir( res );
-          window.location = '/user/' + res.fName;
+          window.location = '/user/' + res.username;
         }
       });
     }

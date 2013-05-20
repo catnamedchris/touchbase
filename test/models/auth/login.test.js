@@ -2,7 +2,7 @@ describe('Model :: Login', function() {
   var loginModel;
 
   beforeEach(function( done ) {
-    require([ 'models/auth/login' ], function( LoginModel ){
+    require([ 'js/models/auth/login' ], function( LoginModel ){
       loginModel = new LoginModel();
       done();
     });
@@ -17,8 +17,8 @@ describe('Model :: Login', function() {
       loginModel.url.should.equal('/login');
     });
 
-    it('should have an empty string email by default', function() {
-      loginModel.attributes.email.should.equal('');
+    it('should have an empty string username by default', function() {
+      loginModel.attributes.username.should.equal('');
     });
 
     it('should have an empty string password by default', function() {
@@ -39,8 +39,8 @@ describe('Model :: Login', function() {
       loginModel.isValid().should.be.false;
     });
 
-    it('should validate when setting both a non-empty email and password', function() {
-      loginModel.set( 'email', 'email' );
+    it('should validate when setting both a non-empty username and password', function() {
+      loginModel.set( 'username', 'username' );
       loginModel.set( 'password', 'password' );
       loginModel.isValid().should.be.true;
     });

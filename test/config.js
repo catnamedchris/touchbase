@@ -1,14 +1,14 @@
 require.config({
-  baseUrl: '../public/js/'
+  baseUrl: '../public/'
 , paths: {
-    jquery: 'lib/vendor/jquery-2.0.0'
-  , underscore: 'lib/vendor/underscore'
-  , backbone: 'lib/vendor/backbone'
-  , text: 'lib/vendor/require/text'
-  , chai: '../../node_modules/chai/chai'
-  , mocha: '../../node_modules/mocha/mocha'
-  , sinon: '../../test/lib/vendor/sinon-1.7.1'
-  , sinonChai: '../../node_modules/sinon-chai/lib/sinon-chai'
+    jquery: 'js/lib/vendor/jquery-2.0.0'
+  , underscore: 'js/lib/vendor/underscore'
+  , backbone: 'js/lib/vendor/backbone'
+  , text: 'js/lib/vendor/require/text'
+  , chai: '../node_modules/chai/chai'
+  , mocha: '../node_modules/mocha/mocha'
+  , sinon: '../test/lib/vendor/sinon-1.7.1'
+  , sinonChai: '../node_modules/sinon-chai/lib/sinon-chai'
   }
 , shim: {
     'underscore': { exports: '_' }
@@ -23,7 +23,7 @@ require.config({
   }
 });
 
-require([ '../../test/app.test' ], function( Tester ) {
+require([ '../test/app.test' ], function( Tester ) {
   var tester = new Tester();
   tester.init().run();
 });

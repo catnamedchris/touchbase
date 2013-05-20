@@ -23,10 +23,10 @@ define([
 
     this.run = function() {
       var specs = [];
-      specs.push( '../../test/models/auth/login.test' );
-      specs.push( '../../test/models/auth/signup.test' );
-      specs.push( '../../test/views/auth/login.test' );
-      specs.push( '../../test/views/auth/signup.test' );
+      specs.push( '../test/models/auth/login.test' );
+      specs.push( '../test/models/auth/signup.test' );
+      specs.push( '../test/views/auth/login.test' );
+      specs.push( '../test/views/auth/signup.test' );
 
       require(specs, function() {
         $(function() {
