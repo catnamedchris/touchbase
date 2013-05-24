@@ -58,6 +58,7 @@ define([ 'js/models/auth/login' ], function( LoginModel ) {
           console.log( 'Login successful.' );
           self.$el.find( 'input' ).removeClass( 'error' );
           console.log( res );
+          window.location = '/';
         }
       });
     }

@@ -1,14 +1,9 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , auth = require('./routes/auth')
-  , http = require('http')
-  , path = require('path');
+var express  = require( 'express' )
+  , http     = require( 'http' )
+  , path     = require( 'path' )
+  , db       = require( './lib/db' )
+  , routes   = require( './routes' )
+  , user     = routes.user;
 
 var app = express();
 
@@ -30,10 +25,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.post('/login', auth.login);
-app.post('/user', user.create);
+app.get( '/', routes.index );
+app.post( '/login', db.connect, user.validate, user.login );
+app.post( '/user', db.connect, user.validate, user.create );
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+  console.log('Express server listening on port ' + app.get('port'));
 });

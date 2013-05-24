@@ -54,13 +54,13 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
       this.model.save(attrs, {
         error: function( model, res, options ) {
           console.log( 'Signup failed.' );
-          console.log( res.responseText );
+          console.dir( res );
         }
       , success: function( model, res, options ) {
           console.log( 'Signup successful.' );
           self.$el.find( 'input' ).removeClass( 'error' );
           console.dir( res );
-          window.location = '/user/' + res.username;
+          window.location = '/';
         }
       });
     }

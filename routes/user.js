@@ -1,33 +1,45 @@
+exports.validate = function( req, res, next ) {
+  // TODO: Validate form data
+  next();
+};
+
 exports.create = function( req, res ) {
-  var mongoose = require( 'mongoose' );
-  mongoose.connect( 'mongodb://localhost/touchbase' );
-  var db = mongoose.connection;
-  db.on( 'error', function() {
-    console.error.bind(console, 'connection error:');
+  var mongoose = req.mongoose;
+  var User = require( '../models/user' )( mongoose );
+  var newUser = new User({
+    username: req.body.username
+  , email: req.body.email
+  , password: req.body.password
   });
-  db.once('open', function() {
-    var UserSchema = mongoose.Schema({
-      username: String
-    , email: String
-    , password: String
-    });
-    var User = mongoose.model( 'User', UserSchema );
-    var userData = {
-      username: req.body.username
-    , email: req.body.email
-    , password: req.body.password
-    };
-    var newUser = new User( userData );
-    newUser.save(function( err ) {
-      mongoose.connection.close();
-      if (err){
-        console.log( err );
+
+  newUser.save(function( err ) {
+    mongoose.connection.close();
+    if ( err ) res.send( 500, 'Unable to create new user' );
+    else {
+      req.session.authenticated = true;
+      res.send( 200, {} );
+    }
+  });
+};
+
+exports.login = function( req, res ) {
+  var mongoose = req.mongoose;
+  var User = require( '../models/user' )(mongoose);
+  User.find({ 'username': req.body.username }, function( err, docs ) {
+    mongoose.connection.close();
+    if (err) console.log( err );
+    else {
+      if ( docs.length === 0 ) {
+        res.send( 403, { msg: 'User not available' });
       }
-      else{
-        var pageData = userData;
-        pageData.title = 'User page';
-        res.send( 200, pageData );
+      else {
+        if ( docs[0].password === req.body.password ) {
+          res.send( 200, { msg: 'Start Session' } );
+        }
+        else {
+          res.send( 403, { msg: 'Wrong password' } );
+        }
       }
-    });
+    }
   });
 };
