@@ -27,22 +27,41 @@ describe('Model :: Login', function() {
   });
 
   describe('validate()', function() {
-    it('should invalidate when attempting to set an empty email', function() {
-      loginModel.set( 'email', '' );
-      loginModel.set( 'password', 'password' );
+    it('should invalidate when attempting to set an empty username', function() {
+      var options = { username: '' , password: 'password1!' };
+      loginModel.set( options );
       loginModel.isValid().should.be.false;
     });
 
     it('should invalidate when attempting to set an empty password', function() {
-      loginModel.set( 'email', 'email' );
-      loginModel.set( 'password', '' );
+      var options = { username: 'username' , password: '' };
+      loginModel.set( options );
       loginModel.isValid().should.be.false;
     });
 
-    it('should validate when setting both a non-empty username and password', function() {
-      loginModel.set( 'username', 'username' );
-      loginModel.set( 'password', 'password' );
+    it('should invalidate when setting a password without a character in the set [_a-zA-Z0-9]', function() {
+      var options = { username: 'username' , password: '**!!@@' };
+      loginModel.set( options );
+      loginModel.isValid().should.be.false;
+    });
+
+    it('should invalidate when setting a password without a character in the set [0-9]', function() {
+      var options = { username: 'username' , password: 'aa!!@@' };
+      loginModel.set( options );
+      loginModel.isValid().should.be.false;
+    });
+
+    it('should invalidate when setting a password without a character in the set [^\\w\\s]', function() {
+      var options = { username: 'username' , password: 'aa1111' };
+      loginModel.set( options );
+      loginModel.isValid().should.be.false;
+    });
+
+    it('should validate when setting a valid username and password', function() {
+      var options = { username: 'username' , password: 'password1!' };
+      loginModel.set( options );
       loginModel.isValid().should.be.true;
+
     });
   });
 });
