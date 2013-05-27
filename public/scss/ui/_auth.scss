@@ -1,4 +1,3 @@
-@import "compass/css3/box-shadow";
 @import "compass/css3/text-shadow";
 
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
@@ -6,13 +5,7 @@
 .login, .signup {
     margin: 10% auto;
     text-align: center;
-    width: 75%;
-
-    .text-input {
-        border-radius: 4px;
-        padding: 0.5em;
-        width: 80%;
-    }
+    width: 80%;
 }
 
 .login .title {
@@ -33,46 +26,5 @@
     & .toggle-login,
     & .toggle-login:hover {
         color: $baseColor2;
-    }
-}
-
-.h-divider {
-    padding: 1em 0;
-    position: relative;
-    text-align: center;
-
-    &:before {
-        @include single-box-shadow($baseColor2, 0, 1px, 1px, 0, false);
-
-        border-top: 1px solid $baseColor5;
-        content: "";
-        display: "block";
-        height: 1px;
-        left: 5%;
-        position: absolute;
-        top: 50%;
-        width: 90%;
-        z-index: 1;
-    }
-
-    .h-divider-text {
-        background: $baseColor1;
-        color: #fff;
-        padding: 0 2em;
-        position: relative;
-        z-index: 2;
-    }
-}
-
-.text-input.error {
-    border: 3px solid $inputErrColor;
-}
-
-.errors {
-    color: #fff;
-    margin-bottom: 1.5em;
-
-    .error-msg {
-        margin-bottom: 0;
     }
 }
