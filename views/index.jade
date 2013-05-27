@@ -9,11 +9,11 @@ block content
       ul.form-fields
         li: input#username.text-input(type='text', name='username', placeholder='Username')
         li: input#password.text-input(type='password', name='password', placeholder='Password')
-        li: input.btn.btn--positive(type='submit', value="Log In")
+        li: input.btn.btn--positive.btn--full(type='submit', value='Log In')
 
     .h-divider: em.h-divider-text or
 
-    a.btn.btn--positive.toggle-signup(href='#') Sign Up
+    a.btn.btn--positive.btn--secondary.toggle-signup(href='#') Sign Up
 
   .signup
     form(action='/user', method='post')

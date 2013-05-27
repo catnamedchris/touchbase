@@ -1,45 +1,47 @@
+var User = require( '../models/user' );
+
 exports.validate = function( req, res, next ) {
   // TODO: Validate form data
   next();
 };
 
 exports.create = function( req, res ) {
-  var mongoose = req.mongoose;
-  var User = require( '../models/user' )( mongoose );
   var newUser = new User({
     username: req.body.username
   , email: req.body.email
   , password: req.body.password
   });
 
-  newUser.save(function( err ) {
-    mongoose.connection.close();
+  newUser.save(function( err, newUser ) {
     if ( err ) res.send( 500, 'Unable to create new user' );
     else {
       req.session.authenticated = true;
+      req.session._id = newUser._id;
       res.send( 200, {} );
     }
   });
 };
 
 exports.login = function( req, res ) {
-  var mongoose = req.mongoose;
-  var User = require( '../models/user' )(mongoose);
   User.find({ 'username': req.body.username }, function( err, docs ) {
-    mongoose.connection.close();
-    if (err) console.log( err );
-    else {
-      if ( docs.length === 0 ) {
-        res.send( 403, { msg: 'User not available' });
+    if ( err ) console.log( err );
+    if ( docs.length !== 0 ) {
+      if ( docs[0].password === req.body.password ) {
+        req.session.authenticated = true;
+        req.session._id = docs[0]._id;
+        res.send( 200, { msg: 'Start Session' } );
+      } else {
+        res.send( 403, { msg: 'Wrong password' } );
       }
-      else {
-        if ( docs[0].password === req.body.password ) {
-          res.send( 200, { msg: 'Start Session' } );
-        }
-        else {
-          res.send( 403, { msg: 'Wrong password' } );
-        }
-      }
+    } else {
+      res.send( 403, { msg: 'User not available' } );
     }
+  });
+};
+
+exports.friends = function( req, res ) {
+  User.find({ username: { $exists: true } }, 'username', function( err, docs ) {
+    if ( err ) res.send( 500, {} );
+    res.send( 200, docs );
   });
 };
