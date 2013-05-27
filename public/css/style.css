@@ -3533,9 +3533,18 @@ label,
 /**
  * She’s all yours, cap’n... Begin importing your stuff here.
  */
-/* line 3, ../scss/ui/_base.scss */
+/* line 4, ../scss/ui/_base.scss */
 body {
   background-color: #313948;
+  color: #fff;
+}
+
+/* line 9, ../scss/ui/_base.scss */
+.block-list li {
+  -webkit-box-shadow: 0 1px 1px 0 #7c8aa4;
+  -moz-box-shadow: 0 1px 1px 0 #7c8aa4;
+  box-shadow: 0 1px 1px 0 #7c8aa4;
+  border-color: #101b2f;
 }
 
 /* line 1, ../scss/ui/_buttons.scss */
@@ -3630,9 +3639,35 @@ body {
   color: #7c8aa4;
 }
 
-/* line 1, ../scss/ui/_meetup.scss */
-.meetup {
-  margin: 10% auto;
-  text-align: center;
-  width: 80%;
+/* line 1, ../scss/ui/_friendList.scss */
+input[name=friend] {
+  visibility: hidden;
+}
+
+/* line 5, ../scss/ui/_friendList.scss */
+input[name=friend]:checked + .friend-label {
+  background-color: #101b2f;
+}
+
+/* line 9, ../scss/ui/_friendList.scss */
+.friend-list {
+  margin-bottom: 0;
+}
+
+/* line 13, ../scss/ui/_friendList.scss */
+.friend-item {
+  position: relative;
+}
+/* line 16, ../scss/ui/_friendList.scss */
+.friend-item:last-child {
+  margin-bottom: 0;
+}
+
+/* line 21, ../scss/ui/_friendList.scss */
+.friend-label {
+  left: 0;
+  padding: 12px;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }

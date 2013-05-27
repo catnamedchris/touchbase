@@ -1,9 +1,10 @@
 require.config({
-  paths: {
-    jquery: 'lib/vendor/jquery-2.0.0'
-  , underscore: 'lib/vendor/underscore'
-  , backbone: 'lib/vendor/backbone'
-  , text: 'lib/vendor/require/text'
+  baseUrl: '../'
+, paths: {
+    jquery: 'js/lib/vendor/jquery-2.0.0'
+  , underscore: 'js/lib/vendor/underscore'
+  , backbone: 'js/lib/vendor/backbone'
+  , text: 'js/lib/vendor/require/text'
   }
 , shim: {
     'underscore': { exports: '_' }
@@ -11,13 +12,13 @@ require.config({
       deps: [ 'underscore', 'jquery' ]
     , exports: 'Backbone'
     }
-  , 'app': {
+  , 'js/app': {
       deps: [ 'backbone' ]
     }
   }
 });
 
-require([ 'app' ], function( App ) {
+require([ 'js/app' ], function( App ) {
   var app = new App();
   app.init();
 });

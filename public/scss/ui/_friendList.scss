@@ -1,0 +1,27 @@
+input[name=friend] {
+    visibility: hidden;
+}
+
+input[name=friend]:checked + .friend-label {
+    background-color: $baseColor4;
+}
+
+.friend-list {
+    margin-bottom: 0;
+}
+
+.friend-item {
+    position: relative;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.friend-label {
+    left: 0;
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}

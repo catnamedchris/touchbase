@@ -1,5 +1,13 @@
 @import "../colors";
+@import "compass/css3/box-shadow";
 
 body {
     background-color: $baseColor1;
+    color: #fff;
+}
+
+.block-list li {
+    @include single-box-shadow($baseColor2, 0, 1px, 1px, 0, false);
+
+    border-color: $baseColor4;
 }
