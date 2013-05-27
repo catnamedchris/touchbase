@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  form.friends(action='', method='post')
+    input#who.text-input(type='text', name='who', placeholder='Who')
+    ul.block-list
+
+  script(src='js/lib/vendor/require/require.js')
+  script(src='js/lib/vendor/jquery-2.0.0.js')
+  script(src='js/lib/vendor/underscore.js')
+  script(src='js/lib/vendor/backbone.js')
+  script
+    require([ 'js/views/friends/friends' ], function( FriendsView ) {
+      var Pubsub = _.extend( {}, Backbone.Events )
+        , friendsView = new FriendsView({ Pubsub: Pubsub });
+    });
