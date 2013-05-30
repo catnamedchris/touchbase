@@ -12,8 +12,6 @@ define([
 
       this.Pubsub.on( 'select:friend', this.appendInput, this);
       this.Pubsub.on( 'deselect:friend', this.removeInput, this);
-
-      this.render();
     }
   , render: function() {
       var self = this;
