@@ -24,9 +24,13 @@ app.configure(function() {
 
 app.configure('development', function() {
   app.use( express.errorHandler() );
+  mongoose.connect( 'mongodb://localhost/touchbase' );
 });
 
-mongoose.connect( 'mongodb://localhost/touchbase' );
+app.configure('development-heroku', function() {
+  app.use( express.errorHandler() );
+  mongoose.connect( process.env.MONGOLAB_URI );
+});
 
 app.get( '/', index );
 app.get( '/user/friends', user.friends );
