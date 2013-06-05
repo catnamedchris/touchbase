@@ -4,6 +4,7 @@ var UserSchema = mongoose.Schema({
   username: String
 , email: String
 , password: String
+, friends: [ String ]
 });
 var User = mongoose.model( 'User', UserSchema );
 

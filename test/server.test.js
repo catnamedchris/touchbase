@@ -57,6 +57,10 @@ describe('Route :: User', function() {
     it('should send 403 and relevant message if the password does not match');
     it('should send 200 if the login was successful');
   });
+
+  describe('friends()', function() {
+    it('should return an array of friend objects');
+  });
 });
 
 describe('Route :: New', function() {

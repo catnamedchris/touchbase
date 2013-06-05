@@ -40,8 +40,11 @@ exports.login = function( req, res ) {
 };
 
 exports.friends = function( req, res ) {
-  User.find({ username: { $exists: true } }, 'username', function( err, docs ) {
+  User.findById( req.session._id ).populate({
+    path: 'friends'
+  , select: 'username'
+  }).exec(function( err, user ) {
     if ( err ) res.send( 500, {} );
-    res.send( 200, docs );
+    res.send( 200, user.friends );
   });
 };
