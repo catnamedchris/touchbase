@@ -14,27 +14,23 @@ exports.create = function( req, res ) {
 
   newUser.save(function( err, newUser ) {
     if ( err ) res.send( 500, 'Unable to create new user' );
-    else {
-      req.session.authenticated = true;
-      req.session._id = newUser._id;
-      res.send( 200, {} );
-    }
+    req.session.authenticated = true;
+    req.session._id = newUser._id;
+    res.send( 200, {} );
   });
 };
 
 exports.login = function( req, res ) {
   User.find({ 'username': req.body.username }, function( err, docs ) {
     if ( err ) console.log( err );
-    if ( docs.length !== 0 ) {
-      if ( docs[0].password === req.body.password ) {
-        req.session.authenticated = true;
-        req.session._id = docs[0]._id;
-        res.send( 200, { msg: 'Start Session' } );
-      } else {
-        res.send( 403, { msg: 'Wrong password' } );
-      }
-    } else {
+    if ( !docs.length ) {
       res.send( 403, { msg: 'User not available' } );
+    } else if ( docs[0].password === req.body.password ) {
+      req.session.authenticated = true;
+      req.session._id = docs[0]._id;
+      res.send( 200, { msg: 'Start Session' } );
+    } else {
+      res.send( 403, { msg: 'Wrong password' } );
     }
   });
 };
@@ -44,7 +40,7 @@ exports.friends = function( req, res ) {
     path: 'friends'
   , select: 'username'
   }).exec(function( err, user ) {
-    if ( err ) res.send( 500, {} );
+    if ( err ) res.send( 500, [] );
     res.send( 200, user.friends );
   });
 };

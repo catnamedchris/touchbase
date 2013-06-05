@@ -5,41 +5,43 @@ var chai = require( 'chai' )
 
 chai.use( sinonChai );
 
+var mongoose = require( 'mongoose' );
+mongoose.connect( 'mongodb://localhost/touchbase' );
+
 describe('Route :: User', function() {
+  var req, res, spy;
+  var User = require( '../routes/user' );
+
+  before(function() {
+    // Fake req, res objects
+    req = {
+      body: {
+        username: 'username'
+      , email: 'email'
+      , password: 'password'
+      }
+    , session: {
+        _id: '51a2a0d4b2619ba920000001'
+      , authenticated: false
+      }
+    };
+    res = { send: function() {} };
+    spy = sinon.spy( res, 'send' );
+  });
+
   describe('validate()', function() {
     it('should send an error if the data is invalid');
     it('should call next() if the data is valid');
   });
 
   describe('create()', function() {
-    // Fake req, res objects
-    var req, res;
-
     before(function( done ) {
-      var mongoose = require( 'mongoose' )
-        , User = require( '../routes/user' );
-
-      // Fake req, res objects
-      req = {
-        body: {
-          username: 'username'
-        , email: 'email'
-        , password: 'password'
-        }
-      , session: { authenticated: false }
-      };
-      res = { send: function() {} };
-
-      mongoose.connect( 'mongodb://localhost/touchbase' );
-      mongoose.connection.once('open', function() {
-        User.create( req, res );
-        // Use a timeout for now because I don't know how to check
-        // the session variable upon model saving.
-        setTimeout(function() {
-          mongoose.connection.close();
-          done();
-        }, 300);
-      });
+      User.create( req, res );
+      // Use a timeout for now because I don't know how to check
+      // the session variable upon model saving.
+      setTimeout(function() {
+        done();
+      }, 300);
     });
 
     it('should set the authenticated session variable to true upon successful save', function() {
@@ -52,30 +54,71 @@ describe('Route :: User', function() {
   });
 
   describe('login()', function() {
-    it('should send 403 and relevant message if user is not available');
-    it('should send 403 and relevant message if the username does not match');
-    it('should send 403 and relevant message if the password does not match');
-    it('should send 200 if the login was successful');
+    afterEach(function( done ) {
+      spy.reset();
+      done();
+    });
+
+    it('should send 403 and relevant message if user is not available', function( done ) {
+      req.body.username = 'non-existent user';
+      User.login( req, res );
+      setTimeout(function() {
+        spy.should.have.been.calledWith( 403, { msg: 'User not available' } );
+        done();
+      }, 300);
+    });
+
+    it('should send 403 and relevant message if the password does not match', function( done ) {
+      req.body.username = 'Chris';
+      User.login( req, res );
+      setTimeout(function() {
+        spy.should.have.been.calledWith( 403, { msg: 'Wrong password' } );
+        done();
+      }, 300);
+    });
+
+    it('should send 200 if the login was successful', function( done ) {
+      req.body.username = 'Chris';
+      req.body.password = 'password1!';
+      User.login( req, res );
+      setTimeout(function() {
+        spy.should.have.been.calledWith( 200, { msg: 'Start Session' } );
+        done();
+      }, 300);
+    });
   });
 
   describe('friends()', function() {
-    it('should return an array of friend objects');
+    after(function( done ) {
+      spy.reset();
+      done();
+    });
+
+    it('should return an array of user objects', function( done ) {
+      User.friends( req, res );
+      setTimeout(function() {
+        spy.args.should.have.deep.property('[0][1]').that.is.an('array');
+        spy.args[0][1].forEach(function( friend ) {
+          friend.username.should.exist;
+        });
+        done();
+      }, 300);
+    });
   });
 });
 
 describe('Route :: New', function() {
   var req, res, spy;
 
-  before(function( done ) {
+  before(function() {
     req = { session: {} };
     res = { render: function( page, data ) {} };
     spy = sinon.spy( res, 'render' );
+  });
 
-    var mongoose = require( 'mongoose' );
-    mongoose.connect( 'mongodb://localhost/touchbase' );
-    mongoose.connection.once('open', function() {
-      done();
-    });
+  afterEach(function( done ) {
+    spy.reset();
+    done();
   });
 
   it('should render the index page when no session is authenticated', function( done ) {
