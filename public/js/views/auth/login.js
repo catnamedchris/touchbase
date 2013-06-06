@@ -52,12 +52,13 @@ define([ 'js/models/auth/login' ], function( LoginModel ) {
       this.model.save(attrs, {
         error: function( model, res, options ) {
           console.log( 'Login failed.' );
-          console.log( res );
+          console.dir( res );
+          model.trigger( 'invalid', model, res.responseJSON );
         }
       , success: function( model, res, options ) {
           console.log( 'Login successful.' );
           self.$el.find( 'input' ).removeClass( 'error' );
-          console.log( res );
+          console.dir( res );
           window.location = '/';
         }
       });

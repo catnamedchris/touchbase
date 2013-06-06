@@ -1,8 +1,25 @@
 var User = require( '../models/user' );
 
 exports.validate = function( req, res, next ) {
-  // TODO: Validate form data
-  next();
+  var requirejs = require( 'requirejs' );
+  requirejs.config({
+    baseUrl: __dirname + '/../'
+  , nodeRequire: require
+  });
+
+  requirejs([ 'public/js/lib/validator' ], function( Validator ) {
+    var validator = new Validator();
+    if ( req.path !== '/login' ) {
+      validator.checkEmail( req.body.email );
+    }
+    validator.checkUsername( req.body.username );
+    validator.checkPassword( req.body.password );
+    if ( validator.hasErrors() ) {
+      res.send( 403, validator.errors );
+    } else {
+      next();
+    }
+  });
 };
 
 exports.create = function( req, res ) {

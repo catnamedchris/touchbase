@@ -55,6 +55,7 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
         error: function( model, res, options ) {
           console.log( 'Signup failed.' );
           console.dir( res );
+          model.trigger( 'invalid', model, res.responseJSON );
         }
       , success: function( model, res, options ) {
           console.log( 'Signup successful.' );

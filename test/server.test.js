@@ -30,8 +30,65 @@ describe('Route :: User', function() {
   });
 
   describe('validate()', function() {
-    it('should send an error if the data is invalid');
-    it('should call next() if the data is valid');
+    afterEach(function( done ) {
+      spy.reset();
+      done();
+    });
+
+    it('should send an error if the email is invalid', function( done ) {
+      User.validate( req, res );
+      setTimeout(function() {
+        spy.args[0][0].should.equal( 403 );
+        spy.args[0][1].fields.email.should.equal( 'Email is invalid.' );
+        done();
+      }, 300);
+    });
+
+    it('should send an error if the username is invalid', function( done ) {
+      req.body.username = '';
+      User.validate( req, res );
+      setTimeout(function() {
+        spy.args[0][0].should.equal( 403 );
+        spy.args[0][1].fields.username.should.equal( 'Username is invalid.' );
+        req.body.username = 'username';
+        done();
+      }, 300);
+    });
+
+    it('should send an error if the password does not contain valid characters', function( done ) {
+      User.validate( req, res );
+      setTimeout(function() {
+        spy.args[0][0].should.equal( 403 );
+        spy.args[0][1].fields.password[0].should.equal( 'Password must contain at least one of the following: a letter, a digit, and a symbol.' );
+        done();
+      }, 300);
+    });
+
+    it('should send an error if the password does not contain at least 6 characters', function( done ) {
+      req.body.password = 'p1!';
+      User.validate( req, res );
+      setTimeout(function() {
+        spy.args[0][0].should.equal( 403 );
+        spy.args[0][1].fields.password[0].should.equal( 'Password must contain at least 6 characters.' );
+        req.body.password = 'password';
+        done();
+      }, 300);
+    });
+
+    it('should call next() if all data is valid', function( done ) {
+      var nextSpy = sinon.spy();
+
+      req.body.email = 'a@mailinator.com';
+      req.body.password = 'password1!';
+      User.validate( req, res, nextSpy );
+      setTimeout(function() {
+        nextSpy.should.have.been.called;
+        req.body.email = 'email';
+        req.body.password = 'password';
+        done();
+      }, 300);
+
+    });
   });
 
   describe('create()', function() {
