@@ -1,7 +1,5 @@
 @import "compass/css3/text-shadow";
 
-@import url(http://fonts.googleapis.com/css?family=Pacifico);
-
 .login, .signup {
     margin: 10% auto;
     text-align: center;
@@ -12,7 +10,7 @@
     @include single-text-shadow(1px, 1px, 2px, false, rgba(0, 0, 0, 0.8));
 
     color: $baseColor2;
-    font-family: 'Pacifico', cursive;
+    font-family: 'helvetica', 'arial', 'sans-serif';
 }
 
 .signup {

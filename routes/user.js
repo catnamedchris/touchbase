@@ -66,3 +66,10 @@ exports.friends = function( req, res ) {
     res.send( 200, user.friends );
   });
 };
+
+exports.profile = function( req, res ) {
+  User.findById(req.query._id, 'username email', function( err, user ) {
+    if ( err ) res.send( 500, {} );
+    res.send( 200, user );
+  });
+};

@@ -20,6 +20,7 @@ describe('Route :: User', function() {
       , email: 'email'
       , password: 'password'
       }
+    , query: {}
     , session: {
         _id: '51a2a0d4b2619ba920000001'
       , authenticated: false
@@ -158,6 +159,19 @@ describe('Route :: User', function() {
         spy.args[0][1].forEach(function( friend ) {
           friend.username.should.exist;
         });
+        done();
+      }, 300);
+    });
+  });
+
+  describe('profile()', function() {
+    it('should return a user\'s username, and email', function( done ) {
+      req.query._id = '51a2a0d4b2619ba920000001';
+      User.profile( req, res );
+      setTimeout(function() {
+        spy.args[0][0].should.equal( 200 );
+        spy.args[0][1].username.should.equal( 'Chris' );
+        spy.args[0][1].email.should.equal( 'a@mailinator.com' );
         done();
       }, 300);
     });

@@ -18,7 +18,7 @@ define([ 'text!js/templates/navbar.html' ], function( template ) {
       evt.preventDefault();
 
       var href = $( evt.currentTarget ).find( 'a' ).attr( 'href' );
-      this.App.Router.navigate( href, { trigger: true } );
+      this.App.router.navigate( href, { trigger: true } );
     }
   });
 

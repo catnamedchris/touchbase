@@ -1,25 +1,33 @@
 define([
-  'js/views/friend/friendList'
-, 'js/views/friend/findFriend'
-], function( FriendListView, FindFriendView ) {
+  'js/views/user/friend/friendList'
+, 'js/views/user/friend/friendFinder'
+, 'js/views/user/userProfile'
+], function( FriendListView, FriendFinderView, UserProfileView ) {
   var Router = Backbone.Router.extend({
     routes: {
-      '': 'showFriends'
-    , '/': 'showFriends'
-    , 'find-friend': 'findFriends'
+      ''               : 'showFriendList'
+    , '/'              : 'showFriendList'
+    , 'find-friend'    : 'showFriendFinder'
+    , 'user/:username' : 'showUserProfile'
     }
   , initialize: function( options ) {
-      this.Pubsub = options.Pubsub;
-      this.appViews = options.appViews;
-      this.rootView = this.appViews.rootView;
+      this.App = options.App;
+      this.Views = this.App.Views;
     }
-  , showFriends: function() {
-      this.appViews.friendListView = this.appViews.friendListView || new FriendListView({ Pubsub: this.Pubsub });
-      this.rootView.render( this.appViews.friendListView );
+  , showFriendList: function() {
+      var friendList = this.Views.friendList;
+      friendList = friendList || new FriendListView({ App: this.App });
+      this.Views.root.render( friendList );
     }
-  , findFriends: function() {
-      this.appViews.findFriendView = this.appViews.findFriendView || new FindFriendView({ Pubsub: this.Pubsub });
-      this.rootView.render( this.appViews.findFriendView );
+  , showFriendFinder: function() {
+      var friendFinder = this.Views.friendFinder;
+      friendFinder = friendFinder || new FriendFinderView({ App: this.App });
+      this.Views.root.render( friendFinder );
+    }
+  , showUserProfile: function() {
+      var userProfile = this.Views.userProfile;
+      userProfile = userProfile || new UserProfileView({ App: this.App });
+      this.Views.root.render( userProfile );
     }
   });
 

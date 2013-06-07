@@ -1,17 +1,17 @@
 define([
-  'text!js/templates/friendList.html'
+  'text!js/templates/user/userList.html'
 , 'js/collections/friends'
-, 'js/views/friend/friend'
-], function( template, FriendsCollection, FriendView ) {
-  var FriendsView = Backbone.View.extend({
+, 'js/views/user/friend/friendListItem'
+], function( userListTemplate, FriendCollection, FriendListItemView ) {
+  var FriendListView = Backbone.View.extend({
     className: 'friends'
-  , template: _.template( template )
+  , template: _.template( userListTemplate )
   , initialize: function( options ) {
-      this.Pubsub = options.Pubsub;
-      this.collection = new FriendsCollection();
+      this.App = options.App;
+      this.collection = new FriendCollection();
 
-      this.Pubsub.on( 'select:friend', this.appendInput, this);
-      this.Pubsub.on( 'deselect:friend', this.removeInput, this);
+      this.App.Pubsub.on( 'select:friend', this.appendInput, this);
+      this.App.Pubsub.on( 'deselect:friend', this.removeInput, this);
     }
   , render: function() {
       var self = this;
@@ -23,12 +23,13 @@ define([
           console.log( res );
         }
       , success: function( collection, res, options ) {
-          var $friendList = self.$el.find( '.block-list' );
+          var $friendList = self.$el.find( '.user-list' );
           collection.each(function( friend ) {
-            var friendView = new FriendView( { model: friend, Pubsub: self.Pubsub } );
-            $friendList.append( friendView.render().$el );
-
-            return self;
+            var friendListItemView = new FriendListItemView({
+              model: friend
+            , App: self.App
+            });
+            $friendList.append( friendListItemView.render().$el );
           });
         }
       });
@@ -43,5 +44,5 @@ define([
     }
   });
 
-  return FriendsView;
+  return FriendListView;
 });

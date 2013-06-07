@@ -6,7 +6,7 @@ input[name=friend]:checked + .friend-label {
     background-color: $baseColor4;
 }
 
-.friend-list {
+.user-list {
     margin-bottom: 0;
 }
 
@@ -24,4 +24,9 @@ input[name=friend]:checked + .friend-label {
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+.user-item-link {
+    color: #fff;
+    text-decoration: none;
 }

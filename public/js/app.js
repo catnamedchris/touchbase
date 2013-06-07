@@ -3,14 +3,12 @@ define([ 'js/views/app', 'js/router' ], function( AppView, Router ) {
     this.init = function() {
       this.Pubsub = _.extend({}, Backbone.Events);
 
+      this.Models = {};
+
       this.Views = {};
-      this.Views.rootView = new AppView({ App: this });
+      this.Views.root = new AppView({ App: this });
 
-      this.Router = new Router({
-        appViews: this.Views
-      , Pubsub: this.Pubsub
-      });
-
+      this.router = new Router({ App: this });
 
       Backbone.history.start();
     };

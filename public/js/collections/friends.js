@@ -1,7 +1,10 @@
-define([], function() {
-  var FriendsCollection = Backbone.Collection.extend({
+define([
+  'js/models/user/userListItem'
+], function( UserListItemModel ) {
+  var FriendCollection = Backbone.Collection.extend({
     url: '/user/friends'
+  , model: UserListItemModel
   });
 
-  return FriendsCollection;
+  return FriendCollection;
 });
