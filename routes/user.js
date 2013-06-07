@@ -52,6 +52,11 @@ exports.login = function( req, res ) {
   });
 };
 
+exports.logout = function( req, res ) {
+  req.session.destroy();
+  res.render( 'index', { title: 'TouchBase' } );
+};
+
 exports.friends = function( req, res ) {
   User.findById( req.session._id ).populate({
     path: 'friends'

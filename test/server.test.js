@@ -201,3 +201,29 @@ describe('Route :: New', function() {
     });
   });
 });
+
+describe('Route :: Friend', function() {
+  var req, res, spy;
+  var User = require( '../routes/user' );
+
+  before(function() {
+    // Fake req, res objects
+    req = {
+      query: { name: 'Chris' }
+    };
+    res = { send: function() {} };
+    spy = sinon.spy( res, 'send' );
+  });
+
+  describe('find()', function() {
+    it('should return all usernames that are similar to the queried username', function( done ) {
+      var Friend = require( '../routes/friend' );
+      Friend.find( req, res );
+      setTimeout(function() {
+        spy.args[0][0].should.equal( 200 );
+        spy.args[0][1][0].username.should.equal( 'Chris' );
+        done();
+      }, 300);
+    });
+  });
+});

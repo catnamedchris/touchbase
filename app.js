@@ -4,7 +4,8 @@ var express  = require( 'express' )
   , mongoose = require( 'mongoose' )
   , routes   = require( './routes' )
   , index    = routes.index
-  , user     = routes.user;
+  , user     = routes.user
+  , friend   = routes.friend;
 
 var app = express();
 
@@ -33,9 +34,13 @@ app.configure('development-heroku', function() {
 });
 
 app.get( '/', index );
-app.get( '/user/friends', user.friends );
 app.post( '/login', user.validate, user.login );
+
 app.post( '/user', user.validate, user.create );
+app.get( '/user/friends', user.friends );
+
+app.get( '/friend', friend.find );
+
 
 http.createServer( app ).listen(app.get( 'port' ), function() {
   console.log( 'Express server listening on port ' + app.get( 'port' ) );

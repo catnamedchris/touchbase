@@ -10,6 +10,8 @@ define([ 'js/views/app', 'js/router' ], function( AppView, Router ) {
         appViews: this.Views
       , Pubsub: this.Pubsub
       });
+
+
       Backbone.history.start();
     };
   };

@@ -1,17 +1,23 @@
-define([], function() {
+define([ 'js/views/navbar' ], function( NavbarView ) {
   var AppView = Backbone.View.extend({
     el: '#app'
   , initialize: function( options ) {
       this.App = options.App;
+      this.renderNav();
     }
-  , render: function( view ) {
-      if ( this.view ) { this.removeChildView(); }
-      this.view = view;
-      this.$el.append( view.$el );
-      view.render();
+  , renderNav: function() {
+      this.navbarView = new NavbarView({ App: this.App });
+      this.$el.append( this.navbarView.$el );
+      this.navbarView.render();
     }
-  , removeChildView: function() {
-      this.view.remove();
+  , render: function( contentView ) {
+      if ( this.contentView ) { this.removeContentView(); }
+      this.contentView = contentView;
+      this.$el.append( this.contentView.$el );
+      this.contentView.render();
+    }
+  , removeContentView: function() {
+      this.contentView.remove();
     }
   });
 
