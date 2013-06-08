@@ -26,6 +26,7 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
             }
           }
         }
+        self.$el.find( '.errors' ).slideDown( 1000 );
       });
     }
   , render: function() {

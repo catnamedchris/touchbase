@@ -3814,22 +3814,23 @@ body {
 
 /* line 21, ../scss/ui/_form.scss */
 .errors {
-  background-color: #41987b;
+  background-color: rgba(65, 152, 123, 0.5);
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
+  display: none;
   margin-bottom: 1.5em;
 }
-/* line 27, ../scss/ui/_form.scss */
+/* line 28, ../scss/ui/_form.scss */
 .errors .error-msg {
   margin-bottom: 1em;
   padding: 0 2em;
   text-align: left;
 }
-/* line 32, ../scss/ui/_form.scss */
+/* line 33, ../scss/ui/_form.scss */
 .errors .error-msg:first-child {
   padding-top: 2em;
 }
-/* line 33, ../scss/ui/_form.scss */
+/* line 34, ../scss/ui/_form.scss */
 .errors .error-msg:last-child {
   padding-bottom: 2em;
 }

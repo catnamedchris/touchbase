@@ -27,6 +27,7 @@ define([ 'js/models/auth/login' ], function( LoginModel ) {
             }
           }
         }
+        self.$el.find( '.errors' ).slideDown( 1000 );
       });
     }
   , render: function() {

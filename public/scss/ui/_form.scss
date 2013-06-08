@@ -19,9 +19,10 @@
 }
 
 .errors {
-    background-color: $baseColor7;
+    background-color: $baseColor7a;
     border-top-left-radius: 50px;
     border-bottom-right-radius: 50px;
+    display: none;
     margin-bottom: 1.5em;
 
     .error-msg {
