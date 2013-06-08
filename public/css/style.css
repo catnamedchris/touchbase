@@ -3837,30 +3837,31 @@ body {
 
 /* line 3, ../scss/ui/_auth.scss */
 .login, .signup {
-  margin: 10% auto;
+  margin: 0 auto;
+  padding: 10% 0;
   text-align: center;
   width: 80%;
 }
 
-/* line 9, ../scss/ui/_auth.scss */
+/* line 10, ../scss/ui/_auth.scss */
 .login .title {
   color: #fdfdfd;
   font-weight: 100;
   text-transform: uppercase;
 }
 
-/* line 15, ../scss/ui/_auth.scss */
+/* line 16, ../scss/ui/_auth.scss */
 .signup {
   display: none;
 }
 
-/* line 19, ../scss/ui/_auth.scss */
+/* line 20, ../scss/ui/_auth.scss */
 .signup .no-signup {
   color: #fdfdfd;
   font-weight: 100;
   margin-top: 1.5em;
 }
-/* line 25, ../scss/ui/_auth.scss */
+/* line 26, ../scss/ui/_auth.scss */
 .signup .no-signup .toggle-login, .signup .no-signup .toggle-login:hover {
   color: #3e3e3e;
   font-weight: normal;
