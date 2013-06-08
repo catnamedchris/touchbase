@@ -1,18 +1,35 @@
+@mixin input-placeholder-color($color) {
+    &::-webkit-input-placeholder { color: $color; }
+    &:-moz-placeholder { color: $color; }
+    &::-moz-placeholder { color: $color; }
+    &:-ms-input-placeholder { color: $color; }
+}
+
 .text-input {
-    border-radius: 4px;
-    padding: 0.5em;
+    border: 0.2em solid transparent;
+    border-radius: 25px;
+    @include input-placeholder-color($baseColor1);
+    color: $baseColor7;
+    padding: 1em;
     width: 100%;
 }
 
 .text-input.error {
-    border: 3px solid $inputErrColor;
+    border-color: $inputErrColor;
 }
 
 .errors {
-    color: #fff;
+    background-color: $baseColor7;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
     margin-bottom: 1.5em;
 
     .error-msg {
-        margin-bottom: 0;
+        margin-bottom: 1em;
+        padding: 0 2em;
+        text-align: left;
+
+        &:first-child { padding-top: 2em; }
+        &:last-child { padding-bottom: 2em; }
     }
 }

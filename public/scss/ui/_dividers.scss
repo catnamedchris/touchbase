@@ -1,27 +1,25 @@
 @import "compass/css3/box-shadow";
 
 .h-divider {
-    padding: 1em 0;
+    padding: 1.5em 0;
     position: relative;
     text-align: center;
 
     &:before {
-        @include single-box-shadow($baseColor2, 0, 1px, 1px, 0, false);
-
-        border-top: 1px solid $baseColor5;
+        border-top: 1px solid $baseColor3;
         content: "";
         display: "block";
         height: 1px;
-        left: 5%;
+        left: 0;
         position: absolute;
         top: 50%;
-        width: 90%;
+        width: 100%;
         z-index: 1;
     }
 
     .h-divider-text {
-        background: $baseColor1;
-        color: #fff;
+        background: $baseColor6;
+        color: $baseColor3;
         padding: 0 2em;
         position: relative;
         z-index: 2;

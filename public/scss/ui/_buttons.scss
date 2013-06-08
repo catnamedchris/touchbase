@@ -1,13 +1,15 @@
 .btn--positive {
-    background-color: $baseColor4;
+    background-color: $baseColor7;
+    border-radius: 25px;
+    height: 3.2em;
 }
 
 .btn--secondary {
-    background-color: $baseColor8;
-    width: 50%;
+    background-color: $baseColor5;
+    width: 75%;
 }
 
 .nav .btn {
-    background-color: $baseColor8;
+    background-color: $baseColor5;
     text-align: center;
 }

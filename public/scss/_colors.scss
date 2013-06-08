@@ -1,13 +1,40 @@
-$baseColor1: #313948;
-$baseColor2: #7C8AA4;
-$baseColor3: #8791A4;
-$baseColor4: #101B2F;
-$baseColor5: #292e36;
+$baseColor0: #3e3e3e;
 
-$baseColor5: #514A3C;
-$baseColor6: #463617;
-$baseColor7: #6C5F46;
-$baseColor8: #B6A585;
-$baseColor9: #B6A992;
+// ... + dark gray
+$baseColor1: #909090;
+$baseColor2: #6c6c6c;
+
+// monochromatic + light gray
+$baseColor3: #fdfdfd;
+$baseColor4: #d9d9d9;
+$baseColor5: #8fdac1;
+$baseColor6: #5ec3a1;
+$baseColor7: #41987b;
+
+// ... + complement
+$baseColor8: #f0c1d1;
+$baseColor9: #bd6482;
+
+// triad
+$baseColor10: #64bd9f;
+$baseColor11: #c1f0e0;
+$baseColor12: #8fdac1;
+$baseColor13: #daa88f;
+$baseColor14: #da8fda;
+
+// quad
+$baseColor15: #8fa8da;
+$baseColor16: #c1f0e0;
+$baseColor17: #8fdac1;
+$baseColor18: #dac18f;
+$baseColor19: #da8fa8;
+
+// analogic
+$baseColor20: #aabde3;
+$baseColor21: #8fcdda;
+$baseColor22: #8fdac1;
+$baseColor23: #8fda9b;
+$baseColor24: #bde3aa;
+
 
 $inputErrColor: rgba(255, 0, 0, 0.5);

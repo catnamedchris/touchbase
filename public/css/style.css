@@ -3709,86 +3709,129 @@ label,
  * She’s all yours, cap’n... Begin importing your stuff here.
  */
 /* line 4, ../scss/ui/_base.scss */
-body {
-  background-color: #313948;
-  color: #fff;
+html, body {
+  height: 100%;
 }
 
-/* line 9, ../scss/ui/_base.scss */
+/* line 8, ../scss/ui/_base.scss */
+body {
+  background-color: #5ec3a1;
+  color: #fdfdfd;
+  font-family: 'helvetica', 'arial', 'sans-serif';
+}
+
+/* line 14, ../scss/ui/_base.scss */
+#app {
+  background-color: #fdfdfd;
+  color: #41987b;
+  font-weight: 100;
+  min-height: 100%;
+  overflow: auto;
+}
+
+/* line 22, ../scss/ui/_base.scss */
 .block-list li {
-  -webkit-box-shadow: 0 1px 1px 0 #7c8aa4;
-  -moz-box-shadow: 0 1px 1px 0 #7c8aa4;
-  box-shadow: 0 1px 1px 0 #7c8aa4;
-  border-color: #101b2f;
+  border-color: #d9d9d9;
+  border-style: dashed;
+  font-size: 1.8em;
 }
 
 /* line 1, ../scss/ui/_buttons.scss */
 .btn--positive {
-  background-color: #101b2f;
+  background-color: #41987b;
+  border-radius: 25px;
+  height: 3.2em;
 }
 
-/* line 5, ../scss/ui/_buttons.scss */
+/* line 7, ../scss/ui/_buttons.scss */
 .btn--secondary {
-  background-color: #b6a585;
-  width: 50%;
+  background-color: #8fdac1;
+  width: 75%;
 }
 
-/* line 10, ../scss/ui/_buttons.scss */
+/* line 12, ../scss/ui/_buttons.scss */
 .nav .btn {
-  background-color: #b6a585;
+  background-color: #8fdac1;
   text-align: center;
 }
 
 /* line 3, ../scss/ui/_dividers.scss */
 .h-divider {
-  padding: 1em 0;
+  padding: 1.5em 0;
   position: relative;
   text-align: center;
 }
 /* line 8, ../scss/ui/_dividers.scss */
 .h-divider:before {
-  -webkit-box-shadow: 0 1px 1px 0 #7c8aa4;
-  -moz-box-shadow: 0 1px 1px 0 #7c8aa4;
-  box-shadow: 0 1px 1px 0 #7c8aa4;
-  border-top: 1px solid #514a3c;
+  border-top: 1px solid #fdfdfd;
   content: "";
   display: "block";
   height: 1px;
-  left: 5%;
+  left: 0;
   position: absolute;
   top: 50%;
-  width: 90%;
+  width: 100%;
   z-index: 1;
 }
-/* line 22, ../scss/ui/_dividers.scss */
+/* line 20, ../scss/ui/_dividers.scss */
 .h-divider .h-divider-text {
-  background: #313948;
-  color: #fff;
+  background: #5ec3a1;
+  color: #fdfdfd;
   padding: 0 2em;
   position: relative;
   z-index: 2;
 }
 
-/* line 1, ../scss/ui/_form.scss */
+/* line 8, ../scss/ui/_form.scss */
 .text-input {
-  border-radius: 4px;
-  padding: 0.5em;
+  border: 0.2em solid transparent;
+  border-radius: 25px;
+  color: #41987b;
+  padding: 1em;
   width: 100%;
 }
-
-/* line 7, ../scss/ui/_form.scss */
-.text-input.error {
-  border: 3px solid rgba(255, 0, 0, 0.5);
+/* line 2, ../scss/ui/_form.scss */
+.text-input::-webkit-input-placeholder {
+  color: #909090;
+}
+/* line 3, ../scss/ui/_form.scss */
+.text-input:-moz-placeholder {
+  color: #909090;
+}
+/* line 4, ../scss/ui/_form.scss */
+.text-input::-moz-placeholder {
+  color: #909090;
+}
+/* line 5, ../scss/ui/_form.scss */
+.text-input:-ms-input-placeholder {
+  color: #909090;
 }
 
-/* line 11, ../scss/ui/_form.scss */
+/* line 17, ../scss/ui/_form.scss */
+.text-input.error {
+  border-color: rgba(255, 0, 0, 0.5);
+}
+
+/* line 21, ../scss/ui/_form.scss */
 .errors {
-  color: #fff;
+  background-color: #41987b;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
   margin-bottom: 1.5em;
 }
-/* line 15, ../scss/ui/_form.scss */
+/* line 27, ../scss/ui/_form.scss */
 .errors .error-msg {
-  margin-bottom: 0;
+  margin-bottom: 1em;
+  padding: 0 2em;
+  text-align: left;
+}
+/* line 32, ../scss/ui/_form.scss */
+.errors .error-msg:first-child {
+  padding-top: 2em;
+}
+/* line 33, ../scss/ui/_form.scss */
+.errors .error-msg:last-child {
+  padding-bottom: 2em;
 }
 
 /* line 3, ../scss/ui/_auth.scss */
@@ -3800,24 +3843,26 @@ body {
 
 /* line 9, ../scss/ui/_auth.scss */
 .login .title {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  color: #7c8aa4;
-  font-family: 'helvetica', 'arial', 'sans-serif';
+  color: #fdfdfd;
+  font-weight: 100;
+  text-transform: uppercase;
 }
 
-/* line 16, ../scss/ui/_auth.scss */
+/* line 15, ../scss/ui/_auth.scss */
 .signup {
   display: none;
 }
 
-/* line 20, ../scss/ui/_auth.scss */
+/* line 19, ../scss/ui/_auth.scss */
 .signup .no-signup {
-  color: #fff;
+  color: #fdfdfd;
+  font-weight: 100;
   margin-top: 1.5em;
 }
 /* line 25, ../scss/ui/_auth.scss */
 .signup .no-signup .toggle-login, .signup .no-signup .toggle-login:hover {
-  color: #7c8aa4;
+  color: #3e3e3e;
+  font-weight: normal;
 }
 
 /* line 1, ../scss/ui/_userList.scss */
@@ -3827,24 +3872,37 @@ input[name=friend] {
 
 /* line 5, ../scss/ui/_userList.scss */
 input[name=friend]:checked + .friend-label {
-  background-color: #101b2f;
+  background-color: #8fdac1;
+  color: #fdfdfd;
 }
 
-/* line 9, ../scss/ui/_userList.scss */
+/* line 10, ../scss/ui/_userList.scss */
 .user-list {
+  border: none;
   margin-bottom: 0;
 }
 
-/* line 13, ../scss/ui/_userList.scss */
+/* line 15, ../scss/ui/_userList.scss */
+.searchbar {
+  background-color: #5ec3a1;
+  padding: 0.7em 0.5em;
+}
+
+/* line 20, ../scss/ui/_userList.scss */
+#who {
+  background-color: #fdfdfd;
+}
+
+/* line 24, ../scss/ui/_userList.scss */
 .friend-item {
   position: relative;
 }
-/* line 16, ../scss/ui/_userList.scss */
+/* line 27, ../scss/ui/_userList.scss */
 .friend-item:last-child {
   margin-bottom: 0;
 }
 
-/* line 21, ../scss/ui/_userList.scss */
+/* line 32, ../scss/ui/_userList.scss */
 .friend-label {
   left: 0;
   padding: 12px;
@@ -3853,8 +3911,8 @@ input[name=friend]:checked + .friend-label {
   width: 100%;
 }
 
-/* line 29, ../scss/ui/_userList.scss */
+/* line 40, ../scss/ui/_userList.scss */
 .user-item-link {
-  color: #fff;
+  color: #41987b;
   text-decoration: none;
 }

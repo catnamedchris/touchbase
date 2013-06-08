@@ -1,13 +1,27 @@
 @import "../colors";
 @import "compass/css3/box-shadow";
 
-body {
-    background-color: $baseColor1;
-    color: #fff;
+html, body {
+    height: 100%;
 }
 
-.block-list li {
-    @include single-box-shadow($baseColor2, 0, 1px, 1px, 0, false);
+body {
+    background-color: $baseColor6;
+    color: $baseColor3;
+    font-family: 'helvetica', 'arial', 'sans-serif';
+}
 
+    #app {
+        background-color: $baseColor3;
+        color: $baseColor7;
+        font-weight: 100;
+        min-height: 100%;
+        overflow: auto;
+    }
+
+.block-list li {
     border-color: $baseColor4;
+    border-style: dashed;
+
+    font-size: 1.8em;
 }

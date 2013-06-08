@@ -7,10 +7,9 @@
 }
 
 .login .title {
-    @include single-text-shadow(1px, 1px, 2px, false, rgba(0, 0, 0, 0.8));
-
-    color: $baseColor2;
-    font-family: 'helvetica', 'arial', 'sans-serif';
+    color: $baseColor3;
+    font-weight: 100;
+    text-transform: uppercase;
 }
 
 .signup {
@@ -18,11 +17,13 @@
 }
 
 .signup .no-signup {
-    color: #fff;
+    color: $baseColor3;
+    font-weight: 100;
     margin-top: 1.5em;
 
     & .toggle-login,
     & .toggle-login:hover {
-        color: $baseColor2;
+        color: $baseColor0;
+        font-weight: normal;
     }
 }

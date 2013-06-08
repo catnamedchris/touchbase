@@ -3,12 +3,23 @@ input[name=friend] {
 }
 
 input[name=friend]:checked + .friend-label {
-    background-color: $baseColor4;
+    background-color: $baseColor22;
+    color: $baseColor3;
 }
 
 .user-list {
+    border: none;
     margin-bottom: 0;
 }
+
+    .searchbar {
+        background-color: $baseColor6;
+        padding: 0.7em 0.5em;
+    }
+
+    #who {
+        background-color: $baseColor3;
+    }
 
 .friend-item {
     position: relative;
@@ -27,6 +38,6 @@ input[name=friend]:checked + .friend-label {
 }
 
 .user-item-link {
-    color: #fff;
+    color: $baseColor7;
     text-decoration: none;
 }

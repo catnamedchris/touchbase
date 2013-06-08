@@ -13,7 +13,7 @@ define([ 'js/views/navbar' ], function( NavbarView ) {
   , render: function( contentView ) {
       if ( this.contentView ) { this.removeContentView(); }
       this.contentView = contentView;
-      this.$el.append( this.contentView.$el );
+      this.$el.prepend( this.contentView.$el );
       this.contentView.render();
     }
   , removeContentView: function() {
