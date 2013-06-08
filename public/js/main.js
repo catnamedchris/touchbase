@@ -5,6 +5,7 @@ require.config({
   , underscore: 'js/lib/vendor/underscore'
   , backbone: 'js/lib/vendor/backbone'
   , text: 'js/lib/vendor/require/text'
+  , socketio: 'js/lib/vendor/socket.io'
   }
 , shim: {
     'underscore': { exports: '_' }
@@ -12,8 +13,9 @@ require.config({
       deps: [ 'underscore', 'jquery' ]
     , exports: 'Backbone'
     }
+  , 'socketio': { exports: 'io' }
   , 'js/app': {
-      deps: [ 'backbone' ]
+      deps: [ 'backbone', 'socketio' ]
     }
   }
 });

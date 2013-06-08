@@ -10,6 +10,8 @@ define([ 'js/views/app', 'js/router' ], function( AppView, Router ) {
 
       this.router = new Router({ App: this });
 
+      this.socket = io.connect( 'http://localhost:3000' );
+
       Backbone.history.start();
     };
   };

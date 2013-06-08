@@ -1,5 +1,6 @@
 var express  = require( 'express' )
   , http     = require( 'http' )
+  , socket   = require( './lib/socket' )
   , path     = require( 'path' )
   , mongoose = require( 'mongoose' )
   , routes   = require( './routes' )
@@ -42,7 +43,7 @@ app.get( '/user/friends', user.friends );
 
 app.get( '/friend', friend.find );
 
-
-http.createServer( app ).listen(app.get( 'port' ), function() {
+var server = http.createServer( app ).listen(app.get( 'port' ), function() {
   console.log( 'Express server listening on port ' + app.get( 'port' ) );
 });
+socket.listen( server );
