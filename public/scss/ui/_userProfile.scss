@@ -1,0 +1,33 @@
+.bio {
+    background-color: $baseColor21;
+    color: $baseColor3;
+    overflow: auto;
+    padding: 2em;
+
+    .bio-pic {
+        border: 3px solid $baseColor3;
+        border-radius: 25px;
+        @include box-shadow(rgba(0, 0, 0, 0.3) 0 0 20px 1px);
+        display: block;
+        height: 150px;
+        margin: 0 auto 1em;
+        width: 150px;
+    }
+
+    .bio-username, .bio-email {
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .bio-username {
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+}
+
+.btn--add-friend {
+    border-radius: 0;
+    display: block;
+    margin: 2em auto;
+    width: 75%;
+}

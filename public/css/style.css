@@ -3918,3 +3918,41 @@ input[name=friend]:checked + .friend-label {
   color: #41987b;
   text-decoration: none;
 }
+
+/* line 1, ../scss/ui/_userProfile.scss */
+.bio {
+  background-color: #8fcdda;
+  color: #fdfdfd;
+  overflow: auto;
+  padding: 2em;
+}
+/* line 7, ../scss/ui/_userProfile.scss */
+.bio .bio-pic {
+  border: 3px solid #fdfdfd;
+  border-radius: 25px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px 1px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 20px 1px;
+  display: block;
+  height: 150px;
+  margin: 0 auto 1em;
+  width: 150px;
+}
+/* line 17, ../scss/ui/_userProfile.scss */
+.bio .bio-username, .bio .bio-email {
+  margin-bottom: 0;
+  text-align: center;
+}
+/* line 22, ../scss/ui/_userProfile.scss */
+.bio .bio-username {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+/* line 28, ../scss/ui/_userProfile.scss */
+.btn--add-friend {
+  border-radius: 0;
+  display: block;
+  margin: 2em auto;
+  width: 75%;
+}
