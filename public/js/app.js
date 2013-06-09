@@ -13,7 +13,7 @@ define([
 
       this.router = new Router({ App: this });
 
-      this.socket = io.connect( 'http://localhost:3000' );
+      this.socket = io.connect( window.location.origin );
 
       Backbone.history.start();
     };
