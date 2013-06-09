@@ -5,6 +5,7 @@ module.exports = function( req, res ) {
     var User = require( '../models/user' );
     User.findById(req.session._id, function( err, user ) {
       if ( err ) console.log( err );
+      res.cookie( 'uid', req.session._id, { expires: new Date(Date.now() + 900000), path: '/' } );
       res.render('home', {
         title: 'TouchBase'
       , username: user.username
