@@ -1,10 +1,15 @@
-var mongoose = require( 'mongoose' );
+var mongoose = require( 'mongoose' )
+  , Schema = mongoose.Schema;
 
-var UserSchema = mongoose.Schema({
+var UserSchema = Schema({
   username: String
 , email: String
 , password: String
-, friends: [ String ]
+, friends: { type: [Schema.ObjectId] }
+, friendRequests: {
+    received: { type: [Schema.ObjectId] }
+  , sent: { type: [Schema.ObjectId] }
+  }
 });
 var User = mongoose.model( 'User', UserSchema );
 

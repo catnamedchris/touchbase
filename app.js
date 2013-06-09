@@ -37,9 +37,9 @@ app.configure('development-heroku', function() {
 app.get( '/', index );
 app.post( '/login', user.validate, user.login );
 
-app.get( '/user', user.profile );
-app.post( '/user', user.validate, user.create );
 app.get( '/user/friends', user.friends );
+app.get( '/user/:id', user.profile );
+app.post( '/user', user.validate, user.create );
 
 app.get( '/friend', friend.find );
 

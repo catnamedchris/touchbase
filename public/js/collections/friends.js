@@ -1,9 +1,9 @@
 define([
-  'js/models/user/userListItem'
-], function( UserListItemModel ) {
+  'js/models/user/user'
+], function( UserModel ) {
   var FriendCollection = Backbone.Collection.extend({
     url: '/user/friends'
-  , model: UserListItemModel
+  , model: UserModel
   });
 
   return FriendCollection;

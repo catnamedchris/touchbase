@@ -20,6 +20,7 @@ describe('Route :: User', function() {
       , email: 'email'
       , password: 'password'
       }
+    , params: {}
     , query: {}
     , session: {
         _id: '51a2a0d4b2619ba920000001'
@@ -166,7 +167,7 @@ describe('Route :: User', function() {
 
   describe('profile()', function() {
     it('should return a user\'s username, and email', function( done ) {
-      req.query._id = '51a2a0d4b2619ba920000001';
+      req.params.id = '51a2a0d4b2619ba920000001';
       User.profile( req, res );
       setTimeout(function() {
         spy.args[0][0].should.equal( 200 );
