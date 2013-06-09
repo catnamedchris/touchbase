@@ -1,4 +1,7 @@
-define([ 'js/views/app', 'js/router' ], function( AppView, Router ) {
+define([
+  'js/router'
+, 'js/views/app'
+], function( Router, AppView ) {
   var App = function() {
     this.init = function() {
       this.Pubsub = _.extend({}, Backbone.Events);

@@ -68,7 +68,7 @@ exports.friends = function( req, res ) {
 };
 
 exports.profile = function( req, res ) {
-  User.findById(req.params.id, 'username email friends received', function( err, user ) {
+  User.findById(req.params.id, function( err, user ) {
     if ( err ) res.send( 500, {} );
     res.send( 200, user );
   });

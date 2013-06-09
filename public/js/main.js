@@ -6,6 +6,7 @@ require.config({
   , backbone: 'js/lib/vendor/backbone'
   , text: 'js/lib/vendor/require/text'
   , socketio: 'js/lib/vendor/socket.io'
+  , cookie: 'js/lib/vendor/jquery.cookie'
   }
 , shim: {
     'underscore': { exports: '_' }
@@ -14,8 +15,11 @@ require.config({
     , exports: 'Backbone'
     }
   , 'socketio': { exports: 'io' }
+  , 'cookie': {
+      deps: [ 'jquery' ]
+    }
   , 'js/app': {
-      deps: [ 'backbone', 'socketio' ]
+      deps: [ 'backbone', 'socketio', 'cookie' ]
     }
   }
 });

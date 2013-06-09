@@ -1,8 +1,25 @@
-define([ 'js/views/navbar' ], function( NavbarView ) {
+define([
+  'js/models/user/user'
+, 'js/views/navbar'
+], function( UserModel, NavbarView ) {
   var AppView = Backbone.View.extend({
     el: '#app'
   , initialize: function( options ) {
       this.App = options.App;
+      this.model = new UserModel({
+        _id: $.cookie( 'uid' )
+      });
+      this.model.fetch({
+        error: function( model, res, options ) {
+          console.log( 'Fetch logged-in user failed' );
+          console.dir( model );
+          console.dir( res );
+        }
+      , success: function( model, res, options ) {
+          console.log( 'Fetch logged-in user successful' );
+          console.dir( model );
+        }
+      });
       this.renderNav();
     }
   , renderNav: function() {
