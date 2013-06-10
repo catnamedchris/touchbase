@@ -8,8 +8,10 @@ define([
   , initialize: function( options ) {
       this.App = options.App;
 
-      var attributes = this.App.Models.userListItem.attributes;
-      this.model = new UserModel( attributes );
+      //var attributes = this.App.Models.userListItem.attributes;
+      this.model = new UserModel({
+        username: options.username
+      });
     }
   , events: {
       'click .btn--add-friend.btn--positive': 'requestAddFriend'

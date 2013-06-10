@@ -15,7 +15,7 @@ define([
 
       this.socket = io.connect( window.location.origin );
 
-      Backbone.history.start();
+      Backbone.history.start({ pushState: true });
     };
   };
 

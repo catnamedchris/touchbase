@@ -1,7 +1,7 @@
 define([], function() {
   var UserModel = Backbone.Model.extend({
-    urlRoot: '/user'
-  , idAttribute: '_id'
+    urlRoot: '/api/user'
+  , idAttribute: 'username'
   , defaults: {
       username: ''
     , email: ''

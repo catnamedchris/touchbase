@@ -24,9 +24,9 @@ define([
       friendFinder = friendFinder || new FriendFinderView({ App: this.App });
       this.Views.root.render( friendFinder );
     }
-  , showUserProfile: function() {
+  , showUserProfile: function( username ) {
       var userProfile = this.Views.userProfile;
-      userProfile = userProfile || new UserProfileView({ App: this.App });
+      userProfile = userProfile || new UserProfileView({ App: this.App, username: username });
       this.Views.root.render( userProfile );
     }
   });

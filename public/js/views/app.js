@@ -8,16 +8,14 @@ define([
       this.App = options.App;
       this.model = new UserModel({
         _id: $.cookie( 'uid' )
+      , username: $.cookie( 'username' )
       });
       this.model.fetch({
         error: function( model, res, options ) {
           console.log( 'Fetch logged-in user failed' );
-          console.dir( model );
-          console.dir( res );
         }
       , success: function( model, res, options ) {
           console.log( 'Fetch logged-in user successful' );
-          console.dir( model );
         }
       });
       this.renderNav();

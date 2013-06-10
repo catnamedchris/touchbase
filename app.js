@@ -38,7 +38,8 @@ app.get( '/', index );
 app.post( '/login', user.validate, user.login );
 
 app.get( '/user/friends', user.friends );
-app.get( '/user/:id', user.profile );
+app.get( '/api/user/:username', user.profile );
+app.get( '/user/:username', user.profilePage );
 app.post( '/user', user.validate, user.create );
 
 app.get( '/friend', friend.find );
