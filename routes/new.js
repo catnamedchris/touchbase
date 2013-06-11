@@ -1,6 +1,10 @@
-module.exports = function( req, res ) {
+module.exports = function( req, res, next ) {
   if ( !req.session.authenticated ) {
-    res.render( 'index', { title: 'TouchBase' } );
+    if ( req.path === '/' ) {
+      res.render( 'index', { title: 'TouchBase' } );
+    } else {
+      res.redirect( '/' );
+    }
   } else {
     var User = require( '../models/user' );
     User.findOne({ username: req.session.uid }, function( err, user ) {
