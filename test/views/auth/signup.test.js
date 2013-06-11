@@ -1,9 +1,9 @@
 describe('View :: Signup', function() {
-  var signupView, SignupModel;
+  var signupView, UserModel;
 
   before(function( done ) {
-    require([ 'js/models/auth/signup' ], function( _SignupModel ) {
-      SignupModel = _SignupModel;
+    require([ 'js/models/user/user' ], function( _UserModel ) {
+      UserModel = _UserModel;
     });
     done();
   });
@@ -22,7 +22,7 @@ describe('View :: Signup', function() {
     });
 
     it('should have a SignupModel', function() {
-      signupView.model.should.be.an.instanceof( SignupModel );
+      signupView.model.should.be.an.instanceof( UserModel );
     });
   });
 });

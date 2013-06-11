@@ -167,7 +167,7 @@ describe('Route :: User', function() {
 
   describe('profile()', function() {
     it('should return a user\'s username, and email', function( done ) {
-      req.params.id = '51a2a0d4b2619ba920000001';
+      req.params.username = 'Chris';
       User.profile( req, res );
       setTimeout(function() {
         spy.args[0][0].should.equal( 200 );
@@ -184,7 +184,7 @@ describe('Route :: New', function() {
 
   before(function() {
     req = { session: {} };
-    res = { render: function( page, data ) {} };
+    res = { cookie: function() {}, render: function( page, data ) {} };
     spy = sinon.spy( res, 'render' );
   });
 
@@ -206,11 +206,13 @@ describe('Route :: New', function() {
     req.session.authenticated = true;
 
     var User = require( '../models/user' );
-    User.find({ 'username': 'a' }, function( err, docs ) {
-      req.session._id = docs[0]._id;
+    User.findOne({ 'username': 'a' }, function( err, user ) {
+      var cookieSpy = sinon.spy( res, 'cookie' );
+      req.session.uid = user.username;
       require( '../routes/new' )( req, res );
       setTimeout(function() {
         spy.should.have.been.calledWith( 'home' );
+        cookieSpy.should.have.been.calledWith( 'username', 'a', { maxAge: 900000 } );
         done();
       }, 300);
     });

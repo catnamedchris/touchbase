@@ -14,7 +14,7 @@ describe('Model :: Login', function() {
     });
 
     it('should have the correct URL attribute', function() {
-      loginModel.url.should.equal('/login');
+      loginModel.url.should.equal('/api/user/login');
     });
 
     it('should have an empty string username by default', function() {

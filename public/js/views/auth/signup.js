@@ -1,4 +1,4 @@
-define([ 'js/models/auth/signup' ], function( SignupModel ) {
+define([ 'js/models/user/user' ], function( UserModel ) {
   var SignupView = Backbone.View.extend({
     el: '.signup'
   , events: {
@@ -9,7 +9,7 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
       var self = this;
 
       this.Pubsub = options.Pubsub;
-      this.model = new SignupModel();
+      this.model = new UserModel();
       this.model.on('invalid', function( model, errors ) {
         self.$el.find( '.errors' ).empty();
         self.$el.find( 'input' ).removeClass( 'error' );
@@ -53,7 +53,8 @@ define([ 'js/models/auth/signup' ], function( SignupModel ) {
       var self = this;
       var attrs = this.model.attributes;
       this.model.save(attrs, {
-        error: function( model, res, options ) {
+        validateSignup: true
+      , error: function( model, res, options ) {
           console.log( 'Signup failed.' );
           console.dir( res );
           model.trigger( 'invalid', model, res.responseJSON );

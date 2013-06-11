@@ -3,16 +3,10 @@ module.exports = function( req, res ) {
     res.render( 'index', { title: 'TouchBase' } );
   } else {
     var User = require( '../models/user' );
-    User.findById(req.session._id, function( err, user ) {
+    User.findOne({ username: req.session.uid }, function( err, user ) {
       if ( err ) console.log( err );
-      res.cookie( 'uid', req.session._id, { expires: new Date(Date.now() + 900000), path: '/' } );
-      res.cookie( 'username', user.username, { expires: new Date(Date.now() + 900000), path: '/' } );
-      res.render('home', {
-        title: 'TouchBase'
-      , username: user.username
-      , email: user.email
-      , password: user.password
-      });
+      res.cookie( 'username', user.username, { maxAge: 900000 } );
+      res.render( 'home', { title: 'TouchBase' } );
     });
   }
 };

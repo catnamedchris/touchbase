@@ -4,13 +4,8 @@
   <p class="bio-email"><%= email %></p>
 </div>
 
-<%
-  var isFriend = _.contains( friends, $.cookie('uid') )
-    , sentFriendRequest = _.contains( friendRequests.received, $.cookie('uid') )
-    , enableButton = !isFriend && !sentFriendRequest;
-%>
-<button class="btn btn--add-friend <% if ( !enableButton ) { %>btn--inactive<% } else { %>btn--positive<% } %>">
-<% if ( enableButton ) { %>
+<button class="btn btn--add-friend <% if ( isFriendable ) { %>btn--positive<% } else { %>btn--inacitve<% } %>">
+<% if ( isFriendable ) { %>
   Add Friend
 <% } else { %>
   Friend Request Sent

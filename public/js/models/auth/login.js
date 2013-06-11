@@ -1,6 +1,6 @@
 define([ 'js/lib/validator' ], function( Validator ) {
   var LoginModel = Backbone.Model.extend({
-    url: '/login'
+    url: '/api/user/login'
   , defaults: {
       username: ''
     , password: ''

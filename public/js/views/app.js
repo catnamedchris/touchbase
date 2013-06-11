@@ -7,8 +7,7 @@ define([
   , initialize: function( options ) {
       this.App = options.App;
       this.model = new UserModel({
-        _id: $.cookie( 'uid' )
-      , username: $.cookie( 'username' )
+        username: $.cookie( 'username' )
       });
       this.model.fetch({
         error: function( model, res, options ) {
@@ -16,6 +15,7 @@ define([
         }
       , success: function( model, res, options ) {
           console.log( 'Fetch logged-in user successful' );
+          console.dir( model );
         }
       });
       this.renderNav();

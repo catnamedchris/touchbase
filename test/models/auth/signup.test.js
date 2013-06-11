@@ -1,83 +1,86 @@
-describe('Model :: Signup', function() {
-  var signupModel;
+describe('Model :: User', function() {
+  var userModel;
 
   beforeEach(function( done ) {
-    require([ 'js/models/auth/signup' ], function( SignupModel ){
-      signupModel = new SignupModel();
+    require([ 'js/models/user/user' ], function( UserModel ){
+      userModel = new UserModel();
       done();
     });
   });
 
   describe('initialize()', function() {
     it('should exist', function() {
-      signupModel.should.exist;
+      userModel.should.exist;
     });
 
-    it('should have the correct URL attribute', function() {
-      signupModel.url.should.equal('/user');
+    it('should have the correct urlRoot attribute', function() {
+      userModel.urlRoot.should.equal('/api/user');
     });
 
     it('should have an empty string email by default', function() {
-      signupModel.attributes.email.should.equal('');
+      userModel.get( 'email' ).should.equal('');
     });
 
     it('should have an empty string username by default', function() {
-      signupModel.attributes.username.should.equal('');
+      userModel.get( 'username' ).should.equal('');
     });
 
     it('should have an empty string password by default', function() {
-      signupModel.attributes.password.should.equal('');
+      userModel.get( 'password' ).should.equal('');
     });
   });
 
   describe('validate()', function() {
-    var options = {};
+    var attrs = {}, options = {}, validationError = null;
 
     beforeEach(function() {
-      options = {
+      attrs = {
         email: 'a@mailinator.com'
       , username: 'a'
       , password: 'password1!'
       };
+      options.validate = true;
+      options.validateSignup = true;
+
+      userModel.validationError = null;
     });
 
     it('should invalidate when setting an invalid email', function() {
-      options.email = 'a@mailinator .com';
-      signupModel.set( options );
-      signupModel.isValid().should.be.false;
+      attrs.email = 'a@mailinator .com';
+      userModel.set( attrs, options );
+      userModel.validationError.should.be.truthy;
     });
 
     it('should invalidate when setting an empty username', function() {
       var emptyValid = true
         , whitespaceValid = true;
 
-      options.username = '';
-      signupModel.set( options );
-      emptyValid = signupModel.isValid();
+      attrs.username = '';
+      userModel.set( attrs, options );
+      userModel.validationError.should.be.truthy;
 
-      options.username = '   ';
-      signupModel.set( options );
-      whitespaceValid = signupModel.isValid();
-
-      ( emptyValid && whitespaceValid ).should.be.false;
+      userModel.validationError = null;
+      attrs.username = '   ';
+      userModel.set( attrs, options );
+      userModel.validationError.should.be.truthy;
     });
 
     it('should invalidate when setting a password without a character in the set [_a-zA-Z0-9]', function() {
-      options.password = '**!!@@';
-      signupModel.set( options );
-      signupModel.isValid().should.be.false;
+      attrs.password = '**!!@@';
+      userModel.set( attrs, options );
+      userModel.validationError.should.be.truthy;
     });
 
     it('should invalidate when setting a password without a character in the set [0-9]', function() {
-      options.password = 'aa!!@@';
-      signupModel.set( options );
-      signupModel.isValid().should.be.false;
+      attrs.password = 'aa!!@@';
+      userModel.set( attrs, options );
+      userModel.validationError.should.be.truthy;
     });
 
     it('should invalidate when setting a password without a character in the set [^\\w\\s]', function() {
-      options.password = 'aa1111';
-      signupModel.set( options );
-      signupModel.isValid().should.be.false;
+      attrs.password = 'aa1111';
+      userModel.set( attrs, options );
+      userModel.validationError.should.be.truthy;
     });
   });
 });

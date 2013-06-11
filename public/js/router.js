@@ -6,7 +6,6 @@ define([
   var Router = Backbone.Router.extend({
     routes: {
       ''               : 'showFriendList'
-    , '/'              : 'showFriendList'
     , 'find-friend'    : 'showFriendFinder'
     , 'user/:username' : 'showUserProfile'
     }
@@ -26,7 +25,10 @@ define([
     }
   , showUserProfile: function( username ) {
       var userProfile = this.Views.userProfile;
-      userProfile = userProfile || new UserProfileView({ App: this.App, username: username });
+      userProfile = userProfile || new UserProfileView({
+        App: this.App
+      , username: username
+      });
       this.Views.root.render( userProfile );
     }
   });

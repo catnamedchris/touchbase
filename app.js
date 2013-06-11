@@ -34,15 +34,22 @@ app.configure('development-heroku', function() {
   mongoose.connect( process.env.MONGOLAB_URI );
 });
 
+/*
+ * Pages
+ */
 app.get( '/', index );
-app.post( '/login', user.validate, user.login );
+app.get( '/user/:username', index );
 
-app.get( '/user/friends', user.friends );
+/*
+ * API
+ */
+app.get( '/api/user/friends', user.friends );
 app.get( '/api/user/:username', user.profile );
-app.get( '/user/:username', user.profilePage );
-app.post( '/user', user.validate, user.create );
+app.post( '/api/user', user.validate, user.create );
+app.post( '/api/user/login', user.validate, user.login );
 
-app.get( '/friend', friend.find );
+app.get( '/api/users/search', friend.find );
+
 
 var server = http.createServer( app ).listen(app.get( 'port' ), function() {
   console.log( 'Express server listening on port ' + app.get( 'port' ) );

@@ -8,7 +8,6 @@ define([
   , initialize: function( options ) {
       this.App = options.App;
 
-      //var attributes = this.App.Models.userListItem.attributes;
       this.model = new UserModel({
         username: options.username
       });
@@ -23,7 +22,17 @@ define([
           console.log( res );
         }
       , success: function( model, res, options ) {
-          self.$el.html( self.template( model.toJSON() ) );
+          var attributes = _.clone( model.attributes )
+            , friends = self.model.get( 'friends' )
+            , friendRequestsReceived = self.model.get( 'friendRequests' ).received
+            , activeUserId = self.App.Views.root.model.get( '_id' )
+            , profileUserId = self.model.get( '_id' );
+
+          var areFriends = _.contains( friends, activeUserId )
+            , sentFriendRequest = _.contains( friendRequestsReceived, activeUserId );
+
+          attributes.isFriendable = ( !areFriends && !sentFriendRequest );
+          self.$el.html( self.template( attributes ) );
         }
       });
     }
