@@ -2,16 +2,23 @@ define([
   'js/views/user/friend/friendList'
 , 'js/views/user/friend/friendFinder'
 , 'js/views/user/userProfile'
-], function( FriendListView, FriendFinderView, UserProfileView ) {
+, 'js/views/meets/meets'
+], function( FriendListView, FriendFinderView, UserProfileView, MeetsView ) {
   var Router = Backbone.Router.extend({
     routes: {
-      ''               : 'showFriendList'
+      ''               : 'showMeets'
+    , 'friends'        : 'showFriendList'
     , 'find-friend'    : 'showFriendFinder'
     , 'user/:username' : 'showUserProfile'
     }
   , initialize: function( options ) {
       this.App = options.App;
       this.Views = this.App.Views;
+    }
+  , showMeets: function() {
+      var meets = this.Views.meets;
+      meets = meets || new MeetsView({ App: this.App });
+      this.Views.root.render( meets );
     }
   , showFriendList: function() {
       var friendList = this.Views.friendList;

@@ -34,3 +34,54 @@
         &:last-child { padding-bottom: 2em; }
     }
 }
+
+// Dropdowns
+.selector {
+    background-color: $baseColor6;
+    height: 100%;
+    left: 0;
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+    .selector__label {
+        border: 1px solid $baseColor7a;
+        display: table;
+        height: 100%;
+        width: 100%;
+        font-weight: 100;
+    }
+
+        .selector__label > h2 {
+            display: table-cell;
+            font-size: 1rem;
+            font-weight: lighter;
+            height: 100%;
+            margin: 0;
+            text-align: center;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+    .selector__options {
+        background-color: $baseColor5;
+        display: none;
+        list-style: none;
+        margin: 0;
+        width: 100%;
+
+        & li {
+            border-bottom: 1px solid $baseColor6;
+            text-align: center;
+        }
+
+        & li:hover {
+            color: $baseColor3;
+        }
+
+        & .selected {
+            font-weight: bold;
+        }
+    }
