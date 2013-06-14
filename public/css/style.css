@@ -4038,11 +4038,40 @@ body {
   padding: 0 12px;
   position: relative;
 }
-
-/* line 24, ../scss/ui/_header.scss */
-.meet-filter__dropdown {
+/* line 23, ../scss/ui/_header.scss */
+.meet-filter .meet-filter__dropdown {
   min-height: 100%;
   width: 100%;
+}
+
+/* line 30, ../scss/ui/_header.scss */
+.menu {
+  height: 100%;
+  position: relative;
+}
+/* line 34, ../scss/ui/_header.scss */
+.menu .selector {
+  padding: 0;
+}
+
+/* line 39, ../scss/ui/_header.scss */
+.menu--selector__options {
+  min-width: 25%;
+  position: absolute;
+  right: 0;
+  width: auto;
+}
+/* line 45, ../scss/ui/_header.scss */
+.menu--selector__options a {
+  color: #41987b;
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  width: 100%;
+}
+/* line 52, ../scss/ui/_header.scss */
+.menu--selector__options a:hover {
+  color: #fdfdfd;
 }
 
 /* line 3, ../scss/ui/_auth.scss */

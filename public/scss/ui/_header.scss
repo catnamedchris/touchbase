@@ -19,9 +19,39 @@
         height: 100%;
         padding: 0 ($base-spacing-unit / 2);
         position: relative;
-    }
 
         .meet-filter__dropdown {
             min-height: 100%;
             width: 100%;
         }
+    }
+
+
+    .menu {
+        height: 100%;
+        position: relative;
+
+        .selector {
+            padding: 0;
+        }
+    }
+
+    .menu--selector__options {
+        min-width: 25%;
+        position: absolute;
+        right: 0;
+        width: auto;
+
+        a {
+            color: $baseColor7;
+            display: block;
+            height: 100%;
+            text-decoration: none;
+            width: 100%;
+
+            &:hover {
+                color: $baseColor3;
+            }
+        }
+    }
+

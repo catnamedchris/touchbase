@@ -1,7 +1,6 @@
 define([
   'js/models/user/user'
-, 'js/views/navbar'
-], function( UserModel, NavbarView ) {
+], function( UserModel ) {
   var AppView = Backbone.View.extend({
     el: '#app'
   , initialize: function( options ) {
@@ -18,17 +17,11 @@ define([
           console.dir( model );
         }
       });
-      this.renderNav();
-    }
-  , renderNav: function() {
-      this.navbarView = new NavbarView({ App: this.App });
-      this.$el.append( this.navbarView.$el );
-      this.navbarView.render();
     }
   , render: function( contentView ) {
       if ( this.contentView ) { this.removeContentView(); }
       this.contentView = contentView;
-      this.$el.prepend( this.contentView.$el );
+      this.$el.append( this.contentView.$el );
       this.contentView.render();
     }
   , removeContentView: function() {

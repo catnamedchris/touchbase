@@ -7,8 +7,11 @@ define([
   , className: 'action-bar grid'
   , template: _.template( headerTemplate )
   , events: {
-      'click .selector__label': 'renderPseudoFilters'
-    , 'click .selector__options--pseudo-filter': 'updateActiveFilter'
+      'click .meet-filter .selector__label': 'renderPseudoFilters'
+    , 'click .meet-filter .selector__options--item': 'updateActiveFilter'
+    , 'click .add-meet': 'renderAddMeet'
+    , 'click .menu': 'renderMenu'
+    , 'click .menu--selector__options .selector__options--item a': 'navigateToLink'
     }
   , initialize: function( options ) {
       var self = this;
@@ -19,9 +22,9 @@ define([
 
       $( document ).ready(function() {
         $( 'body' ).on('click', function() {
-          var $pseudoFilter = self.$el.find( '.selector__options' );
-          if ( $pseudoFilter.filter( ':visible' ).length ) {
-            $pseudoFilter.hide();
+          var $selectorOptions = self.$el.find( '.selector__options' );
+          if ( $selectorOptions.filter( ':visible' ).length ) {
+            $selectorOptions.hide();
           }
         });
       });
@@ -32,9 +35,13 @@ define([
 
       return this;
     }
+  , hideOpenSelectors: function() {
+      this.$el.find( '.selector__options:visible' ).hide();
+    }
   , renderPseudoFilters: function( evt ) {
       evt.stopPropagation();
-      this.$el.find( '.selector__options' ).show();
+      this.hideOpenSelectors();
+      this.$el.find( '.meet-filter .selector__options' ).show();
     }
   , updateActiveFilter: function( evt ) {
       this.meetFilterModel.set( 'activeFilter', $( evt.target ).data( 'index' ) );
@@ -43,7 +50,7 @@ define([
       var activeIndex = this.meetFilterModel.get( 'activeFilter' );
 
       this.$el
-        .find( '.selector__label h2' )
+        .find( '.meet-filter .selector__label h2' )
         .html( this.meetFilterModel.get( 'filters' )[ activeIndex ] );
 
       var $filters = this.$el.find( '.meet-filter__dropdown option' );
@@ -52,8 +59,8 @@ define([
         .siblings()
         .prop( 'selected', false);
 
-      var $pseudoFilter = this.$el.find( '.selector__options' )
-        , $pseudoFilterItems = $pseudoFilter.find( '.selector__options--pseudo-filter' );
+      var $pseudoFilter = this.$el.find( '.meet-filter .selector__options' )
+        , $pseudoFilterItems = $pseudoFilter.find( '.selector__options--item' );
       $( $pseudoFilterItems[ activeIndex ] )
         .addClass( 'selected' )
         .siblings()
@@ -61,7 +68,26 @@ define([
 
       $pseudoFilter.hide();
 
-      // Change meet cards
+      // TODO: Change meet cards
+    }
+  , renderAddMeet: function() {
+      console.log( 'Render add-meet view' );
+    }
+  , renderMenu: function( evt ) {
+      evt.stopPropagation();
+      this.$el.find( '.selector__options:visible' ).hide();
+      this.$el.find( '.menu--selector__options' ).show();
+    }
+  , navigateToLink: function( evt ) {
+      evt.preventDefault();
+      evt.stopPropagation();
+
+      this.$el.find( '.menu--selector__options' ).hide();
+
+      // TODO: Navigate to selected view
+      console.log( 'navigate to ' + $( evt.target ).attr( 'href' ) );
+      var href = $( evt.target ).attr( 'href' );
+      this.App.router.navigate( href, { trigger: true } );
     }
   });
 

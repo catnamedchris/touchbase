@@ -1,7 +1,7 @@
 define([
   'js/views/header'
 , 'js/views/meets/meetCard'
-], function( HeaderView, MettCardView  ) {
+], function( HeaderView, MeetCardView  ) {
   var MeetsView = Backbone.View.extend({
     className: 'meets'
   , initialize: function( options ) {
@@ -11,6 +11,7 @@ define([
   , render: function() {
       this.$el.append( this.headerView.el );
       this.headerView.render();
+      return this;
     }
   });
 
