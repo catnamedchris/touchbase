@@ -15,17 +15,11 @@
         padding-left: 0.2em;
     }
 
-    .meet-filter {
+    .view-filter {
         height: 100%;
         padding: 0 ($base-spacing-unit / 2);
         position: relative;
-
-        .meet-filter__dropdown {
-            min-height: 100%;
-            width: 100%;
-        }
     }
-
 
     .menu {
         height: 100%;
@@ -55,3 +49,7 @@
         }
     }
 
+.header--friends .grid__item:first-child {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}

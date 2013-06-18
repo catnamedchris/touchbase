@@ -38,6 +38,7 @@ app.configure('development-heroku', function() {
  * Pages
  */
 app.get( '/', index );
+app.get( /^\/friends.*$/, index );
 app.get( '/user/:username', index );
 
 /*

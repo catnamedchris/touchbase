@@ -1,0 +1,18 @@
+   <div class="grid__item three-eighths">
+     <a href="/" class="btn btn--header">Back</a>
+   </div><!--
+--><div class="grid__item three-eighths view-filter">
+     <div class="selector">
+       <div class="selector__label"><h2><%= filters[ activeFilter ].name %></h2></div>
+       <ul class="selector__options">
+         <%
+           _.each(filters, function( filter, index ) {
+             var selected = ( index === activeFilter ) ? 'selected' : '';
+         %>
+           <li class="selector__options--item <%= selected %>" data-index="<%= index %>"><a href="<%= filter.path %>"><%= filter.name %></a></li>
+         <%
+           });
+         %>
+       </ul>
+     </div>
+   </div>

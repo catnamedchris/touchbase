@@ -3879,6 +3879,14 @@ body {
   text-align: center;
 }
 
+/* line 17, ../scss/ui/_buttons.scss */
+.btn--header {
+  border: 1px solid rgba(65, 152, 123, 0.5);
+  color: #41987b;
+  line-height: 2;
+  margin-left: 0.5em;
+}
+
 /* line 3, ../scss/ui/_dividers.scss */
 .h-divider {
   padding: 1.5em 0;
@@ -3973,13 +3981,14 @@ body {
 /* line 49, ../scss/ui/_form.scss */
 .selector__label {
   border: 1px solid rgba(65, 152, 123, 0.5);
+  border-radius: 4px;
   display: table;
   height: 100%;
   width: 100%;
   font-weight: 100;
 }
 
-/* line 57, ../scss/ui/_form.scss */
+/* line 58, ../scss/ui/_form.scss */
 .selector__label > h2 {
   display: table-cell;
   font-size: 1rem;
@@ -3991,7 +4000,7 @@ body {
   width: 100%;
 }
 
-/* line 68, ../scss/ui/_form.scss */
+/* line 69, ../scss/ui/_form.scss */
 .selector__options {
   background-color: #8fdac1;
   display: none;
@@ -3999,18 +4008,24 @@ body {
   margin: 0;
   width: 100%;
 }
-/* line 75, ../scss/ui/_form.scss */
-.selector__options li {
+/* line 76, ../scss/ui/_form.scss */
+.selector__options .selector__options--item {
   border-bottom: 1px solid #5ec3a1;
   text-align: center;
 }
-/* line 80, ../scss/ui/_form.scss */
-.selector__options li:hover {
+/* line 81, ../scss/ui/_form.scss */
+.selector__options .selector__options--item:hover {
   color: #fdfdfd;
 }
-/* line 84, ../scss/ui/_form.scss */
-.selector__options .selected {
+/* line 85, ../scss/ui/_form.scss */
+.selector__options .selector__options--item.selected {
   font-weight: bold;
+}
+/* line 89, ../scss/ui/_form.scss */
+.selector__options .selector__options--item a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
 }
 
 /* line 1, ../scss/ui/_header.scss */
@@ -4033,35 +4048,30 @@ body {
 }
 
 /* line 18, ../scss/ui/_header.scss */
-.meet-filter {
+.view-filter {
   height: 100%;
   padding: 0 12px;
   position: relative;
 }
-/* line 23, ../scss/ui/_header.scss */
-.meet-filter .meet-filter__dropdown {
-  min-height: 100%;
-  width: 100%;
-}
 
-/* line 30, ../scss/ui/_header.scss */
+/* line 24, ../scss/ui/_header.scss */
 .menu {
   height: 100%;
   position: relative;
 }
-/* line 34, ../scss/ui/_header.scss */
+/* line 28, ../scss/ui/_header.scss */
 .menu .selector {
   padding: 0;
 }
 
-/* line 39, ../scss/ui/_header.scss */
+/* line 33, ../scss/ui/_header.scss */
 .menu--selector__options {
   min-width: 25%;
   position: absolute;
   right: 0;
   width: auto;
 }
-/* line 45, ../scss/ui/_header.scss */
+/* line 39, ../scss/ui/_header.scss */
 .menu--selector__options a {
   color: #41987b;
   display: block;
@@ -4069,9 +4079,15 @@ body {
   text-decoration: none;
   width: 100%;
 }
-/* line 52, ../scss/ui/_header.scss */
+/* line 46, ../scss/ui/_header.scss */
 .menu--selector__options a:hover {
   color: #fdfdfd;
+}
+
+/* line 52, ../scss/ui/_header.scss */
+.header--friends .grid__item:first-child {
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
 }
 
 /* line 3, ../scss/ui/_auth.scss */

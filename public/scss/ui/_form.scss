@@ -48,6 +48,7 @@
 
     .selector__label {
         border: 1px solid $baseColor7a;
+        border-radius: 4px;
         display: table;
         height: 100%;
         width: 100%;
@@ -72,16 +73,22 @@
         margin: 0;
         width: 100%;
 
-        & li {
+        & .selector__options--item {
             border-bottom: 1px solid $baseColor6;
             text-align: center;
         }
 
-        & li:hover {
+        & .selector__options--item:hover {
             color: $baseColor3;
         }
 
-        & .selected {
+        & .selector__options--item.selected {
             font-weight: bold;
+        }
+
+        & .selector__options--item a {
+            color: inherit;
+            display: block;
+            text-decoration: none;
         }
     }

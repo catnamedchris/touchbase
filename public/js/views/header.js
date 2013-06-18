@@ -1,14 +1,14 @@
 define([
   'text!js/templates/header.html'
-, 'js/models/meetFilter'
-], function( headerTemplate, MeetFilterModel ) {
+, 'js/models/viewFilter'
+], function( headerTemplate, ViewFilterModel ) {
   var HeaderView = Backbone.View.extend({
     tagName: 'header'
   , className: 'action-bar grid'
   , template: _.template( headerTemplate )
   , events: {
-      'click .meet-filter .selector__label': 'renderPseudoFilters'
-    , 'click .meet-filter .selector__options--item': 'updateActiveFilter'
+      'click .view-filter .selector__label': 'renderFilterList'
+    , 'click .view-filter .selector__options--item': 'updateActiveFilter'
     , 'click .add-meet': 'renderAddMeet'
     , 'click .menu': 'renderMenu'
     , 'click .menu--selector__options .selector__options--item a': 'navigateToLink'
@@ -16,16 +16,15 @@ define([
   , initialize: function( options ) {
       var self = this;
       self.App = options.App;
-      self.meetFilterModel = new MeetFilterModel();
+      self.model = new ViewFilterModel({
+        filters: [ 'Attending', 'Invited', 'Cancelled' ]
+      });
 
-      self.meetFilterModel.on( 'change', self.applyFilter, self );
+      self.model.on( 'change', self.applyFilter, self );
 
       $( document ).ready(function() {
         $( 'body' ).on('click', function() {
-          var $selectorOptions = self.$el.find( '.selector__options' );
-          if ( $selectorOptions.filter( ':visible' ).length ) {
-            $selectorOptions.hide();
-          }
+          self.hideOpenSelectors();
         });
       });
     }
@@ -38,37 +37,32 @@ define([
   , hideOpenSelectors: function() {
       this.$el.find( '.selector__options:visible' ).hide();
     }
-  , renderPseudoFilters: function( evt ) {
+  , renderFilterList: function( evt ) {
       evt.stopPropagation();
       this.hideOpenSelectors();
-      this.$el.find( '.meet-filter .selector__options' ).show();
+      this.$el.find( '.view-filter .selector__options' ).show();
     }
   , updateActiveFilter: function( evt ) {
-      this.meetFilterModel.set( 'activeFilter', $( evt.target ).data( 'index' ) );
+      this.model.set( 'activeFilter', $( evt.target ).data( 'index' ) );
     }
   , applyFilter: function() {
-      var activeIndex = this.meetFilterModel.get( 'activeFilter' );
+      var activeIndex = this.model.get( 'activeFilter' )
+        , newFilter = this.model.get( 'filters' )[ activeIndex ];
 
       this.$el
-        .find( '.meet-filter .selector__label h2' )
-        .html( this.meetFilterModel.get( 'filters' )[ activeIndex ] );
+        .find( '.view-filter .selector__label h2' )
+        .html( newFilter );
 
-      var $filters = this.$el.find( '.meet-filter__dropdown option' );
-      $( $filters[ activeIndex ] )
-        .prop( 'selected', true )
-        .siblings()
-        .prop( 'selected', false);
-
-      var $pseudoFilter = this.$el.find( '.meet-filter .selector__options' )
-        , $pseudoFilterItems = $pseudoFilter.find( '.selector__options--item' );
-      $( $pseudoFilterItems[ activeIndex ] )
+      var $filterList = this.$el.find( '.view-filter .selector__options' )
+        , $filterListItems = $filterList.find( '.selector__options--item' );
+      $( $filterListItems[ activeIndex ] )
         .addClass( 'selected' )
         .siblings()
         .removeClass( 'selected' );
 
-      $pseudoFilter.hide();
+      $filterList.hide();
 
-      // TODO: Change meet cards
+      this.App.Pubsub.trigger( 'filter:meets', newFilter );
     }
   , renderAddMeet: function() {
       console.log( 'Render add-meet view' );
@@ -84,8 +78,6 @@ define([
 
       this.$el.find( '.menu--selector__options' ).hide();
 
-      // TODO: Navigate to selected view
-      console.log( 'navigate to ' + $( evt.target ).attr( 'href' ) );
       var href = $( evt.target ).attr( 'href' );
       this.App.router.navigate( href, { trigger: true } );
     }

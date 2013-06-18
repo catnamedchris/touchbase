@@ -18,14 +18,11 @@ define([
         }
       });
     }
-  , render: function( contentView ) {
-      if ( this.contentView ) { this.removeContentView(); }
+  , render: function( contentView, options ) {
+      if ( this.contentView ) { this.contentView.remove(); }
       this.contentView = contentView;
       this.$el.append( this.contentView.$el );
-      this.contentView.render();
-    }
-  , removeContentView: function() {
-      this.contentView.remove();
+      this.contentView.render( options );
     }
   });
 
