@@ -6,6 +6,10 @@
         background-color: $baseColor6;
         border: none;
     }
+
+    .grid__item {
+        height: 100%;
+    }
 }
 
     .header__title {
@@ -49,7 +53,43 @@
         }
     }
 
-.header--friends .grid__item:first-child {
+.grid__item:first-child .btn--header {
+    margin-left: 0.5em;
+}
+
+.grid__item:last-child .btn--header {
+    margin-right: 0.5em;
+}
+
+.header--friends .grid__item,
+.header--meet-maker .grid__item {
     padding-bottom: 0.5em;
     padding-top: 0.5em;
+
+    .btn {
+        height: 100%;
+        max-width: 100%;
+    }
+}
+
+.header--meet-maker {
+    .grid__item:nth-child(2) {
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+    }
+
+    .grid__item:last-child {
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+
+        .btn--header {
+            padding-left: 0.8em;
+            padding-right: 0.8em;
+        }
+    }
+
+    .header__title {
+        font-size: 1.2em;
+        line-height: 32px;
+    }
 }

@@ -40,6 +40,7 @@ app.configure('development-heroku', function() {
 app.get( '/', index );
 app.get( /^\/friends.*$/, index );
 app.get( '/user/:username', index );
+app.get( '/meet/new', index );
 
 /*
  * API

@@ -3884,7 +3884,6 @@ body {
   border: 1px solid rgba(65, 152, 123, 0.5);
   color: #41987b;
   line-height: 2;
-  margin-left: 0.5em;
 }
 
 /* line 3, ../scss/ui/_dividers.scss */
@@ -3994,13 +3993,14 @@ body {
   font-size: 1rem;
   font-weight: lighter;
   height: 100%;
+  line-height: inherit;
   margin: 0;
   text-align: center;
   vertical-align: middle;
   width: 100%;
 }
 
-/* line 69, ../scss/ui/_form.scss */
+/* line 70, ../scss/ui/_form.scss */
 .selector__options {
   background-color: #8fdac1;
   display: none;
@@ -4008,20 +4008,20 @@ body {
   margin: 0;
   width: 100%;
 }
-/* line 76, ../scss/ui/_form.scss */
+/* line 77, ../scss/ui/_form.scss */
 .selector__options .selector__options--item {
   border-bottom: 1px solid #5ec3a1;
   text-align: center;
 }
-/* line 81, ../scss/ui/_form.scss */
+/* line 82, ../scss/ui/_form.scss */
 .selector__options .selector__options--item:hover {
   color: #fdfdfd;
 }
-/* line 85, ../scss/ui/_form.scss */
+/* line 86, ../scss/ui/_form.scss */
 .selector__options .selector__options--item.selected {
   font-weight: bold;
 }
-/* line 89, ../scss/ui/_form.scss */
+/* line 90, ../scss/ui/_form.scss */
 .selector__options .selector__options--item a {
   color: inherit;
   display: block;
@@ -4038,8 +4038,12 @@ body {
   background-color: #5ec3a1;
   border: none;
 }
+/* line 10, ../scss/ui/_header.scss */
+.action-bar .grid__item {
+  height: 100%;
+}
 
-/* line 11, ../scss/ui/_header.scss */
+/* line 15, ../scss/ui/_header.scss */
 .header__title {
   color: #fdfdfd;
   font-weight: 100;
@@ -4047,31 +4051,31 @@ body {
   padding-left: 0.2em;
 }
 
-/* line 18, ../scss/ui/_header.scss */
+/* line 22, ../scss/ui/_header.scss */
 .view-filter {
   height: 100%;
   padding: 0 12px;
   position: relative;
 }
 
-/* line 24, ../scss/ui/_header.scss */
+/* line 28, ../scss/ui/_header.scss */
 .menu {
   height: 100%;
   position: relative;
 }
-/* line 28, ../scss/ui/_header.scss */
+/* line 32, ../scss/ui/_header.scss */
 .menu .selector {
   padding: 0;
 }
 
-/* line 33, ../scss/ui/_header.scss */
+/* line 37, ../scss/ui/_header.scss */
 .menu--selector__options {
   min-width: 25%;
   position: absolute;
   right: 0;
   width: auto;
 }
-/* line 39, ../scss/ui/_header.scss */
+/* line 43, ../scss/ui/_header.scss */
 .menu--selector__options a {
   color: #41987b;
   display: block;
@@ -4079,15 +4083,53 @@ body {
   text-decoration: none;
   width: 100%;
 }
-/* line 46, ../scss/ui/_header.scss */
+/* line 50, ../scss/ui/_header.scss */
 .menu--selector__options a:hover {
   color: #fdfdfd;
 }
 
-/* line 52, ../scss/ui/_header.scss */
-.header--friends .grid__item:first-child {
+/* line 56, ../scss/ui/_header.scss */
+.grid__item:first-child .btn--header {
+  margin-left: 0.5em;
+}
+
+/* line 60, ../scss/ui/_header.scss */
+.grid__item:last-child .btn--header {
+  margin-right: 0.5em;
+}
+
+/* line 65, ../scss/ui/_header.scss */
+.header--friends .grid__item,
+.header--meet-maker .grid__item {
   padding-bottom: 0.5em;
   padding-top: 0.5em;
+}
+/* line 69, ../scss/ui/_header.scss */
+.header--friends .grid__item .btn,
+.header--meet-maker .grid__item .btn {
+  height: 100%;
+  max-width: 100%;
+}
+
+/* line 76, ../scss/ui/_header.scss */
+.header--meet-maker .grid__item:nth-child(2) {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+/* line 81, ../scss/ui/_header.scss */
+.header--meet-maker .grid__item:last-child {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+/* line 85, ../scss/ui/_header.scss */
+.header--meet-maker .grid__item:last-child .btn--header {
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+}
+/* line 91, ../scss/ui/_header.scss */
+.header--meet-maker .header__title {
+  font-size: 1.2em;
+  line-height: 32px;
 }
 
 /* line 3, ../scss/ui/_auth.scss */

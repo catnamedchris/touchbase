@@ -64,8 +64,11 @@ define([
 
       this.App.Pubsub.trigger( 'filter:meets', newFilter );
     }
-  , renderAddMeet: function() {
-      console.log( 'Render add-meet view' );
+  , renderAddMeet: function( evt ) {
+      evt.preventDefault();
+
+      var href = $( evt.target ).attr( 'href' );
+      this.App.router.navigate( href, { trigger: true } );
     }
   , renderMenu: function( evt ) {
       evt.stopPropagation();
