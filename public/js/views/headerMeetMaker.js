@@ -1,7 +1,6 @@
 define([
   'text!js/templates/headerMeetMaker.html'
-, 'js/models/viewFilter'
-], function( headerMeetMakerTemplate, ViewFilterModel ) {
+], function( headerMeetMakerTemplate ) {
   var HeaderMeetMaker = Backbone.View.extend({
     tagName: 'header'
   , className: 'action-bar grid header--meet-maker'
@@ -9,14 +8,6 @@ define([
   , initialize: function( options ) {
       var self = this;
       self.App = options.App;
-      self.model = new ViewFilterModel({
-        filters: [
-          'What'
-        , 'When'
-        , 'Where'
-        , 'Who'
-        ]
-      });
     }
   , render: function() {
       this.delegateEvents();
