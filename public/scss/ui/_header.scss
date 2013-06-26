@@ -14,14 +14,15 @@
 
     .header__title {
         color: $baseColor3;
+        font-size: 1.5rem;
         font-weight: 100;
+        line-height: 2;
         margin-bottom: 0;
-        padding-left: 0.2em;
+        text-align: center;
     }
 
     .view-filter {
         height: 100%;
-        padding: 0 ($base-spacing-unit / 2);
         position: relative;
     }
 
@@ -54,11 +55,12 @@
     }
 
 .grid__item:first-child .btn--header {
-    margin-left: 0.5em;
+    margin-left: 0.75em;
 }
 
-.grid__item:last-child .btn--header {
-    margin-right: 0.5em;
+.header--friends .view-filter .selector {
+    padding-left: 24px;
+    padding-right: 0;
 }
 
 .header--friends .grid__item,
@@ -69,27 +71,25 @@
     .btn {
         height: 100%;
         max-width: 100%;
+        padding-left: 0.8em;
+        padding-right: 0.8em;
     }
 }
 
 .header--meet-maker {
     .grid__item:nth-child(2) {
-        padding-left: 0.75em;
-        padding-right: 0.75em;
+        padding-bottom: 0;
+        padding-top: 0;
     }
 
     .grid__item:nth-child(3) {
         padding-left: 0.75em;
         padding-right: 0.75em;
-
-        .btn--header {
-            padding-left: 0.8em;
-            padding-right: 0.8em;
-        }
+        text-align: right;
     }
 
     .header__title {
-        font-size: 1.2em;
-        line-height: 32px;
+        padding-bottom: 0;
+        padding-top: 0;
     }
 }
