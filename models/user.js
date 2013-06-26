@@ -5,6 +5,7 @@ var UserSchema = Schema({
   username: String
 , email: String
 , password: String
+, meets: { type: [Schema.ObjectId] }
 , friends: { type: [Schema.ObjectId] }
 , friendRequests: {
     received: { type: [Schema.ObjectId] }

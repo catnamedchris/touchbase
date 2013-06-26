@@ -1,0 +1,10 @@
+<p>host: <%= host %></p>
+<p>what: <%= what %></p>
+<p>when: <%= when %></p>
+<p>where: <%= where %></p>
+<p>with:</p>
+<ul>
+  <% _.each(who, function( username ) { %>
+       <li><%= username %></li>
+  <% }); %>
+</ul>

@@ -93,3 +93,27 @@
             text-decoration: none;
         }
     }
+
+.meet-maker {
+    /*height: 100%;*/
+}
+
+.meet-maker__form {
+    /*height: 100%;*/
+    padding: 5%;
+
+    form, .form-fields {
+        /*height: 100%;*/
+    }
+
+    .form-fields > li {
+        height: 150px;
+
+        textarea {
+            border-radius: 4px;
+            height: 100%;
+            padding: 0.5em;
+            width: 100%;
+        }
+    }
+}

@@ -6,7 +6,8 @@ var express  = require( 'express' )
   , routes   = require( './routes' )
   , index    = routes.index
   , user     = routes.user
-  , friend   = routes.friend;
+  , friend   = routes.friend
+  , meet     = routes.meet;
 
 var app = express();
 
@@ -51,6 +52,10 @@ app.post( '/api/user', user.validate, user.create );
 app.post( '/api/user/login', user.validate, user.login );
 
 app.get( '/api/users/search', friend.find );
+
+app.post( '/api/meet', meet.create );
+
+app.get( '/api/meets', meet.attendingMeets );
 
 
 var server = http.createServer( app ).listen(app.get( 'port' ), function() {
