@@ -8,6 +8,7 @@ define([
       username: ''
     , email: ''
     , password: ''
+    , avatar: 'http://www.placecage.com/150/150'
     , friends: []
     , friendRequests: {
         received: []

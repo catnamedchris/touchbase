@@ -24,3 +24,7 @@ body {
 
     font-size: 1.8em;
 }
+
+@mixin clearHeader {
+    padding-top: 3em;
+}

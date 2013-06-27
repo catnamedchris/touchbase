@@ -7,6 +7,14 @@ input[name=friend]:checked + .friend-label {
     color: $baseColor3;
 }
 
+.friend-list, .find-friend {
+    @include clearHeader;
+}
+
+.friend-list {
+
+}
+
 .user-list {
     border: none;
     margin-bottom: 0;

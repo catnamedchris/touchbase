@@ -4060,18 +4060,21 @@ body {
 .action-bar {
   background-color: #5ec3a1;
   height: 3em;
+  margin-left: 0;
+  position: fixed;
+  width: 100%;
 }
-/* line 5, ../scss/ui/_header.scss */
+/* line 8, ../scss/ui/_header.scss */
 .action-bar button {
   background-color: #5ec3a1;
   border: none;
 }
-/* line 10, ../scss/ui/_header.scss */
+/* line 13, ../scss/ui/_header.scss */
 .action-bar .grid__item {
   height: 100%;
 }
 
-/* line 15, ../scss/ui/_header.scss */
+/* line 18, ../scss/ui/_header.scss */
 .header__title {
   color: #fdfdfd;
   font-size: 1.5rem;
@@ -4081,30 +4084,30 @@ body {
   text-align: center;
 }
 
-/* line 24, ../scss/ui/_header.scss */
+/* line 27, ../scss/ui/_header.scss */
 .view-filter {
   height: 100%;
   position: relative;
 }
 
-/* line 29, ../scss/ui/_header.scss */
+/* line 32, ../scss/ui/_header.scss */
 .menu {
   height: 100%;
   position: relative;
 }
-/* line 33, ../scss/ui/_header.scss */
+/* line 36, ../scss/ui/_header.scss */
 .menu .selector {
   padding: 0;
 }
 
-/* line 38, ../scss/ui/_header.scss */
+/* line 41, ../scss/ui/_header.scss */
 .menu--selector__options {
   min-width: 25%;
   position: absolute;
   right: 0;
   width: auto;
 }
-/* line 44, ../scss/ui/_header.scss */
+/* line 47, ../scss/ui/_header.scss */
 .menu--selector__options a {
   color: #41987b;
   display: block;
@@ -4112,29 +4115,29 @@ body {
   text-decoration: none;
   width: 100%;
 }
-/* line 51, ../scss/ui/_header.scss */
+/* line 54, ../scss/ui/_header.scss */
 .menu--selector__options a:hover {
   color: #fdfdfd;
 }
 
-/* line 57, ../scss/ui/_header.scss */
+/* line 60, ../scss/ui/_header.scss */
 .grid__item:first-child .btn--header {
   margin-left: 0.75em;
 }
 
-/* line 61, ../scss/ui/_header.scss */
+/* line 64, ../scss/ui/_header.scss */
 .header--friends .view-filter .selector {
   padding-left: 24px;
   padding-right: 0;
 }
 
-/* line 67, ../scss/ui/_header.scss */
+/* line 70, ../scss/ui/_header.scss */
 .header--friends .grid__item,
 .header--meet-maker .grid__item {
   padding-bottom: 0.5em;
   padding-top: 0.5em;
 }
-/* line 71, ../scss/ui/_header.scss */
+/* line 74, ../scss/ui/_header.scss */
 .header--friends .grid__item .btn,
 .header--meet-maker .grid__item .btn {
   height: 100%;
@@ -4143,86 +4146,21 @@ body {
   padding-right: 0.8em;
 }
 
-/* line 80, ../scss/ui/_header.scss */
+/* line 83, ../scss/ui/_header.scss */
 .header--meet-maker .grid__item:nth-child(2) {
   padding-bottom: 0;
   padding-top: 0;
 }
-/* line 85, ../scss/ui/_header.scss */
+/* line 88, ../scss/ui/_header.scss */
 .header--meet-maker .grid__item:nth-child(3) {
   padding-left: 0.75em;
   padding-right: 0.75em;
   text-align: right;
 }
-/* line 91, ../scss/ui/_header.scss */
+/* line 94, ../scss/ui/_header.scss */
 .header--meet-maker .header__title {
   padding-bottom: 0;
   padding-top: 0;
-}
-
-/* line 1, ../scss/ui/_tabSwitcher.scss */
-.tab-switcher {
-  height: 3em;
-}
-
-/* line 5, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab {
-  background-color: #6c6c6c;
-  color: rgba(253, 253, 253, 0.5);
-  display: inline-block;
-  font-weight: 500;
-  height: 100%;
-  line-height: 3em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-}
-/* line 16, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:after {
-  bottom: 0;
-  content: '';
-  display: block;
-  height: 0.5em;
-  left: 0;
-  opacity: 0.3;
-  position: absolute;
-  width: 100%;
-}
-/* line 27, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab.active:after {
-  opacity: 1;
-}
-/* line 31, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:nth-of-type(1):after {
-  background-color: #aabde3;
-}
-/* line 35, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:nth-of-type(2):after {
-  background-color: #8fcdda;
-}
-/* line 39, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:nth-of-type(3):after {
-  background-color: #daa88f;
-}
-/* line 43, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:nth-of-type(4):after {
-  background-color: #da8fda;
-}
-/* line 47, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:nth-of-type(1).done {
-  color: #aabde3;
-}
-/* line 51, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:nth-of-type(2).done {
-  color: #8fcdda;
-}
-/* line 55, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:nth-of-type(3).done {
-  color: #daa88f;
-}
-/* line 59, ../scss/ui/_tabSwitcher.scss */
-.grid__item-tab:nth-of-type(4).done {
-  color: #da8fda;
 }
 
 /* line 3, ../scss/ui/_auth.scss */
@@ -4269,32 +4207,37 @@ input[name=friend]:checked + .friend-label {
 }
 
 /* line 10, ../scss/ui/_userList.scss */
+.friend-list, .find-friend {
+  padding-top: 3em;
+}
+
+/* line 18, ../scss/ui/_userList.scss */
 .user-list {
   border: none;
   margin-bottom: 0;
 }
 
-/* line 15, ../scss/ui/_userList.scss */
+/* line 23, ../scss/ui/_userList.scss */
 .searchbar {
   background-color: #5ec3a1;
   padding: 0.7em 0.5em;
 }
 
-/* line 20, ../scss/ui/_userList.scss */
+/* line 28, ../scss/ui/_userList.scss */
 #who {
   background-color: #fdfdfd;
 }
 
-/* line 24, ../scss/ui/_userList.scss */
+/* line 32, ../scss/ui/_userList.scss */
 .friend-item {
   position: relative;
 }
-/* line 27, ../scss/ui/_userList.scss */
+/* line 35, ../scss/ui/_userList.scss */
 .friend-item:last-child {
   margin-bottom: 0;
 }
 
-/* line 32, ../scss/ui/_userList.scss */
+/* line 40, ../scss/ui/_userList.scss */
 .friend-label {
   left: 0;
   padding: 12px;
@@ -4303,7 +4246,7 @@ input[name=friend]:checked + .friend-label {
   width: 100%;
 }
 
-/* line 40, ../scss/ui/_userList.scss */
+/* line 48, ../scss/ui/_userList.scss */
 .user-item-link {
   color: #41987b;
   text-decoration: none;
@@ -4345,4 +4288,68 @@ input[name=friend]:checked + .friend-label {
   display: block;
   margin: 2em auto;
   width: 75%;
+}
+
+/* line 1, ../scss/ui/_meets.scss */
+.meets__attending {
+  background-color: #d9d9d9;
+  padding: 5%;
+  padding-top: 3em;
+}
+/* line 6, ../scss/ui/_meets.scss */
+.meets__attending ul {
+  margin-left: 0;
+}
+
+/* line 11, ../scss/ui/_meets.scss */
+.block-list li {
+  border-style: none;
+  font-size: 1.2em;
+}
+/* line 16, ../scss/ui/_meets.scss */
+.block-list li.meet-card {
+  background-color: #fdfdfd;
+  border-radius: 4px;
+  border-style: none;
+  color: #6c6c6c;
+  margin-bottom: 5%;
+  padding: 5%;
+}
+/* line 24, ../scss/ui/_meets.scss */
+.block-list li.meet-card:first-child {
+  margin-top: 5.55556%;
+}
+/* line 28, ../scss/ui/_meets.scss */
+.block-list li.meet-card:last-child {
+  margin-bottom: 0;
+}
+/* line 32, ../scss/ui/_meets.scss */
+.block-list li.meet-card .meet-card__parameter > * {
+  display: inline-block;
+}
+/* line 36, ../scss/ui/_meets.scss */
+.block-list li.meet-card .meet-card__parameter:last-child > * {
+  display: block;
+}
+/* line 37, ../scss/ui/_meets.scss */
+.block-list li.meet-card .meet-card__parameter:last-child > *:last-child {
+  margin-bottom: 0;
+}
+/* line 44, ../scss/ui/_meets.scss */
+.block-list li.meet-card .meet-card__parameter .parameter-label {
+  padding-right: 1em;
+}
+/* line 48, ../scss/ui/_meets.scss */
+.block-list li.meet-card .meet-card__parameter .parameter-detail__user {
+  display: inline-block;
+}
+/* line 52, ../scss/ui/_meets.scss */
+.block-list li.meet-card .meet-card__parameter .parameter-detail__user-avatar {
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+}
+/* line 58, ../scss/ui/_meets.scss */
+.block-list li.meet-card .meet-card__parameter .parameter-detail__user-name {
+  text-align: center;
 }

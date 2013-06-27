@@ -1,0 +1,63 @@
+.meets__attending {
+    background-color: $baseColor4;
+    padding: 5%;
+    @include clearHeader;
+
+    ul {
+        margin-left: 0;
+    }
+}
+
+    .block-list li {
+        border-style: none;
+        font-size: 1.2em;
+
+
+        &.meet-card {
+            background-color: $baseColor3;
+            border-radius: 4px;
+            border-style: none;
+            color: $baseColor2;
+            margin-bottom: 5%;
+            padding: 5%;
+
+            &:first-child {
+                margin-top: 5 / 90 * 100%;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .meet-card__parameter > * {
+                display: inline-block;
+            }
+
+            .meet-card__parameter:last-child > * {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                display: block;
+            }
+
+            .meet-card__parameter {
+                .parameter-label {
+                    padding-right: 1em;
+                }
+
+                .parameter-detail__user {
+                    display: inline-block;
+                }
+
+                .parameter-detail__user-avatar {
+                    border-radius: 50px;
+                    height: 50px;
+                    width: 50px;
+                }
+
+                .parameter-detail__user-name {
+                    text-align: center;
+                }
+            }
+        }
+    }

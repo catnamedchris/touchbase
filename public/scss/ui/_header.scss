@@ -1,6 +1,9 @@
 .action-bar {
     background-color: $baseColor6;
     height: 3em;
+    margin-left: 0;
+    position: fixed;
+    width: 100%;
 
     & button {
         background-color: $baseColor6;

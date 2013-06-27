@@ -3,6 +3,7 @@ var mongoose = require( 'mongoose' )
 
 var UserSchema = Schema({
   username: String
+, avatar: String
 , email: String
 , password: String
 , meets: { type: [Schema.ObjectId] }

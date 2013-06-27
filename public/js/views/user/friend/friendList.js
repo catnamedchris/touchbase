@@ -4,7 +4,7 @@ define([
 , 'js/views/user/friend/friendListItem'
 ], function( userListTemplate, FriendCollection, FriendListItemView ) {
   var FriendListView = Backbone.View.extend({
-    className: 'friends'
+    className: 'friend-list'
   , template: _.template( userListTemplate )
   , initialize: function( options ) {
       this.App = options.App;

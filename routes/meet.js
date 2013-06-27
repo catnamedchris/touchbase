@@ -21,7 +21,7 @@ exports.create = function( req, res ) {
   });
 };
 
-exports.attendingMeets = function( req, res ) {
+exports.meetsAttending = function( req, res ) {
   User.findOne({ username: req.session.uid }).populate({
     path: 'meets'
   , model: 'Meet'
