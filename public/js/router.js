@@ -1,6 +1,6 @@
 define([
-  'js/views/meets/meets'
-, 'js/views/meets/meetMaker'
+  'js/views/meet/meets'
+, 'js/views/meet/meetMaker'
 , 'js/views/user/friend/friends'
 , 'js/views/user/userProfile'
 ], function( MeetsView, MeetMakerView, FriendsView, UserProfileView ) {

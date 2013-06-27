@@ -1,5 +1,5 @@
 define([
-  'js/views/headerFriends'
+  'js/views/header/headerFriends'
 , 'js/views/user/friend/friendList'
 , 'js/views/user/friend/friendFinder'
 ], function( HeaderFriendsView, FriendListView, FriendFinderView ) {

@@ -1,7 +1,7 @@
 define([
   'js/collections/meets'
-, 'js/views/header'
-, 'js/views/meets/meetCard'
+, 'js/views/header/header'
+, 'js/views/meet/meetCard'
 ], function( MeetCollection, HeaderView, MeetCardView  ) {
   var MeetsView = Backbone.View.extend({
     className: 'meets'

@@ -1,5 +1,5 @@
 define([
-  'text!js/templates/meetForm.html'
+  'text!js/templates/meet/meetForm.html'
 ], function( meetFormTemplate ) {
   var MeetFormView = Backbone.View.extend({
     className: 'meet-maker__form'

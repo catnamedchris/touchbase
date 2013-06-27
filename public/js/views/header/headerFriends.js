@@ -1,5 +1,5 @@
 define([
-  'text!js/templates/headerFriend.html'
+  'text!js/templates/header/headerFriend.html'
 , 'js/models/viewFilter'
 ], function( headerFriendTemplate, ViewFilterModel ) {
   var HeaderFriends = Backbone.View.extend({

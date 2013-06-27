@@ -1,5 +1,5 @@
 define([
-  'text!js/templates/meetCard.html'
+  'text!js/templates/meet/meetCard.html'
 ], function( meetCardTemplate ) {
   var MeetCardView = Backbone.View.extend({
     className: 'meetCard'
@@ -8,7 +8,6 @@ define([
       this.App = options.App;
     }
   , render: function() {
-      console.log(this.model);
       this.$el.html( this.template( this.model.toJSON() ) );
       return this;
     }

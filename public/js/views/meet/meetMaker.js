@@ -1,8 +1,8 @@
 define([
   'js/models/meet'
-, 'js/views/headerMeetMaker'
+, 'js/views/header/headerMeetMaker'
 , 'js/views/user/friend/friendList'
-, 'js/views/meets/meetForm'
+, 'js/views/meet/meetForm'
 ], function( MeetModel, HeaderMeetMakerView, FriendListView, MeetFormView ) {
   var MeetMaker = Backbone.View.extend({
     className: 'meet-maker'

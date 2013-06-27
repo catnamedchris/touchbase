@@ -1,5 +1,5 @@
 define([
-  'text!js/templates/headerMeetMaker.html'
+  'text!js/templates/header/headerMeetMaker.html'
 ], function( headerMeetMakerTemplate ) {
   var HeaderMeetMaker = Backbone.View.extend({
     tagName: 'header'
