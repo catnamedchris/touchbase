@@ -4335,21 +4335,22 @@ input[name=friend]:checked + .friend-label {
 .block-list li.meet-card .meet-card__parameter:last-child > *:last-child {
   margin-bottom: 0;
 }
-/* line 44, ../scss/ui/_meets.scss */
+/* line 45, ../scss/ui/_meets.scss */
 .block-list li.meet-card .meet-card__parameter .parameter-label {
   padding-right: 1em;
 }
-/* line 48, ../scss/ui/_meets.scss */
+/* line 49, ../scss/ui/_meets.scss */
 .block-list li.meet-card .meet-card__parameter .parameter-detail__user {
   display: inline-block;
+  margin-right: 8px;
 }
-/* line 52, ../scss/ui/_meets.scss */
+/* line 54, ../scss/ui/_meets.scss */
 .block-list li.meet-card .meet-card__parameter .parameter-detail__user-avatar {
   border-radius: 50px;
   height: 50px;
   width: 50px;
 }
-/* line 58, ../scss/ui/_meets.scss */
+/* line 60, ../scss/ui/_meets.scss */
 .block-list li.meet-card .meet-card__parameter .parameter-detail__user-name {
   text-align: center;
 }

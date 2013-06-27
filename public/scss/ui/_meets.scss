@@ -37,6 +37,7 @@
                 &:last-child {
                     margin-bottom: 0;
                 }
+
                 display: block;
             }
 
@@ -47,6 +48,7 @@
 
                 .parameter-detail__user {
                     display: inline-block;
+                    margin-right: 8px;
                 }
 
                 .parameter-detail__user-avatar {
