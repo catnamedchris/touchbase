@@ -3,7 +3,8 @@ define([
 , 'js/views/header/headerMeetMaker'
 , 'js/views/user/friend/friendList'
 , 'js/views/meet/meetForm'
-], function( MeetModel, HeaderMeetMakerView, FriendListView, MeetFormView ) {
+, 'js/views/meet/meetConfirmation'
+], function( MeetModel, HeaderMeetMakerView, FriendListView, MeetFormView, MeetConfirmationView ) {
   var MeetMaker = Backbone.View.extend({
     className: 'meet-maker'
   , initialize: function( options ) {
@@ -30,6 +31,7 @@ define([
       this.App.Pubsub.on( 'select:friend', this.addInvitee, this );
       this.App.Pubsub.on( 'deselect:friend', this.removeInvitee, this );
       this.App.Pubsub.on( 'who-selected:meet-maker', this.finishMeetForm, this );
+      this.App.Pubsub.on( 'done:meet-maker', this.renderConfirmation, this  );
     }
   , render: function() {
       this.delegateEvents();
@@ -59,6 +61,14 @@ define([
       this.views.friendList.remove();
       this.$el.append( this.views.meetForm.el );
       this.views.meetForm.render();
+    }
+  , renderConfirmation: function() {
+      var meetConfirmation = new MeetConfirmationView({
+        App: this.App
+      , model: this.model
+      });
+      this.$el.append( meetConfirmation.el );
+      meetConfirmation.render();
     }
   });
 

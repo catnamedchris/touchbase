@@ -1,3 +1,9 @@
+.meet-maker {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
 .meets__attending {
     background-color: $baseColor4;
     padding: 5%;
@@ -13,7 +19,32 @@
         font-size: 1.2em;
 
 
-        &.meet-card {
+    }
+        .confirmation {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width:100%;
+
+            &:before {
+                background-color: black;
+                content: '';
+                display: block;
+                height: 100%;
+                opacity: 0.5;
+                width:100%;
+            }
+
+            .meet-card {
+                left: 5%;
+                position: absolute;
+                top: 0;
+                width: 90%;
+            }
+        }
+
+        .meet-card {
             background-color: $baseColor3;
             border-radius: 4px;
             border-style: none;
@@ -33,7 +64,7 @@
                 display: inline-block;
             }
 
-            .meet-card__parameter:last-child > * {
+            .meet-card__parameter:last-of-type > * {
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -62,4 +93,3 @@
                 }
             }
         }
-    }

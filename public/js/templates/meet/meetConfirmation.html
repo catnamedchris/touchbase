@@ -1,0 +1,38 @@
+<div class="meet-card">
+  <div class="meet-card__parameter">
+    <h3 class="parameter-label">Host</h3><!--
+ --><p class="parameter-detail"><%= host %></p>
+  </div>
+  <div class="meet-card__parameter">
+    <h3 class="parameter-label">What</h3><!--
+ --><p class="parameter-detail"><%= what %></p>
+  </div>
+  <div class="meet-card__parameter">
+    <h3 class="parameter-label">When</h3><!--
+ --><p class="parameter-detail"><%= when %></p>
+  </div>
+  <div class="meet-card__parameter">
+    <h3 class="parameter-label">Where</h3><!--
+ --><p class="parameter-detail"><%= where %></p>
+  </div>
+  <div class="meet-card__parameter">
+    <h3 class="parameter-label">With</h3><!--
+ --><ul class="parameter-detail">
+      <% _.each(who.attending, function( username, index ) { %>
+        <% if ( index !== 0) { %>
+     --><li class="parameter-detail__user">
+        <% } else { %>
+        <li class="parameter-detail__user">
+        <% } %>
+          <img class="parameter-detail__user-avatar" data-username="<%= username %>" src="http://www.lorempixel.com/50/50/people">
+        <% if ( index !== who.attending.length - 1) { %>
+        </li><!--
+        <% } else { %>
+        </li>
+        <% } %>
+      <% }); %>
+    </ul>
+  </div>
+  <button>Cancel</button>
+  <button class="create-meet">Create Meet</button>
+</div>

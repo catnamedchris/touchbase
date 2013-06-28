@@ -4286,23 +4286,56 @@ input[name=friend]:checked + .friend-label {
 }
 
 /* line 1, ../scss/ui/_meets.scss */
+.meet-maker {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, ../scss/ui/_meets.scss */
 .meets__attending {
   background-color: #d9d9d9;
   padding: 5%;
   padding-top: 3em;
 }
-/* line 6, ../scss/ui/_meets.scss */
+/* line 12, ../scss/ui/_meets.scss */
 .meets__attending ul {
   margin-left: 0;
 }
 
-/* line 11, ../scss/ui/_meets.scss */
+/* line 17, ../scss/ui/_meets.scss */
 .block-list li {
   border-style: none;
   font-size: 1.2em;
 }
-/* line 16, ../scss/ui/_meets.scss */
-.block-list li.meet-card {
+
+/* line 23, ../scss/ui/_meets.scss */
+.confirmation {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* line 30, ../scss/ui/_meets.scss */
+.confirmation:before {
+  background-color: black;
+  content: '';
+  display: block;
+  height: 100%;
+  opacity: 0.5;
+  width: 100%;
+}
+/* line 39, ../scss/ui/_meets.scss */
+.confirmation .meet-card {
+  left: 5%;
+  position: absolute;
+  top: 0;
+  width: 90%;
+}
+
+/* line 47, ../scss/ui/_meets.scss */
+.meet-card {
   background-color: #fdfdfd;
   border-radius: 4px;
   border-style: none;
@@ -4310,42 +4343,42 @@ input[name=friend]:checked + .friend-label {
   margin-bottom: 5%;
   padding: 5%;
 }
-/* line 24, ../scss/ui/_meets.scss */
-.block-list li.meet-card:first-child {
+/* line 55, ../scss/ui/_meets.scss */
+.meet-card:first-child {
   margin-top: 5.55556%;
 }
-/* line 28, ../scss/ui/_meets.scss */
-.block-list li.meet-card:last-child {
+/* line 59, ../scss/ui/_meets.scss */
+.meet-card:last-child {
   margin-bottom: 0;
 }
-/* line 32, ../scss/ui/_meets.scss */
-.block-list li.meet-card .meet-card__parameter > * {
+/* line 63, ../scss/ui/_meets.scss */
+.meet-card .meet-card__parameter > * {
   display: inline-block;
 }
-/* line 36, ../scss/ui/_meets.scss */
-.block-list li.meet-card .meet-card__parameter:last-child > * {
+/* line 67, ../scss/ui/_meets.scss */
+.meet-card .meet-card__parameter:last-of-type > * {
   display: block;
 }
-/* line 37, ../scss/ui/_meets.scss */
-.block-list li.meet-card .meet-card__parameter:last-child > *:last-child {
+/* line 68, ../scss/ui/_meets.scss */
+.meet-card .meet-card__parameter:last-of-type > *:last-child {
   margin-bottom: 0;
 }
-/* line 45, ../scss/ui/_meets.scss */
-.block-list li.meet-card .meet-card__parameter .parameter-label {
+/* line 76, ../scss/ui/_meets.scss */
+.meet-card .meet-card__parameter .parameter-label {
   padding-right: 1em;
 }
-/* line 49, ../scss/ui/_meets.scss */
-.block-list li.meet-card .meet-card__parameter .parameter-detail__user {
+/* line 80, ../scss/ui/_meets.scss */
+.meet-card .meet-card__parameter .parameter-detail__user {
   display: inline-block;
   margin-right: 8px;
 }
-/* line 54, ../scss/ui/_meets.scss */
-.block-list li.meet-card .meet-card__parameter .parameter-detail__user-avatar {
+/* line 85, ../scss/ui/_meets.scss */
+.meet-card .meet-card__parameter .parameter-detail__user-avatar {
   border-radius: 50px;
   height: 50px;
   width: 50px;
 }
-/* line 60, ../scss/ui/_meets.scss */
-.block-list li.meet-card .meet-card__parameter .parameter-detail__user-name {
+/* line 91, ../scss/ui/_meets.scss */
+.meet-card .meet-card__parameter .parameter-detail__user-name {
   text-align: center;
 }
