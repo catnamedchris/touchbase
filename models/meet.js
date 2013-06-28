@@ -6,7 +6,11 @@ var MeetSchema = Schema({
 , what: String
 , when: String
 , where: String
-, who: { type: [String] }
+, who: {
+    attending: { type: [String] }
+  , invited: { type: [String] }
+  , declined: { type: [String] }
+  }
 });
 var Meet = mongoose.model( 'Meet', MeetSchema );
 

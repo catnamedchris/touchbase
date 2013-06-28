@@ -28,6 +28,7 @@ define([
       this.model.set( 'when', evt.currentTarget.value );
     }
   , finalizeMeetCreation: function() {
+      var self = this;
       var attrs = this.model.attributes;
       this.model.save(attrs, {
         error: function( model, res, options ) {
@@ -38,6 +39,9 @@ define([
           console.log( 'Meet creation successful.' );
           console.dir( res );
 
+          self.App.socket.emit('request:meet', {
+            invited: model.get( 'who' ).invited
+          });
           window.location.href = '/';
         }
       });

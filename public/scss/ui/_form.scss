@@ -94,20 +94,16 @@
         }
     }
 
-.meet-maker {
-    /*height: 100%;*/
-}
-
 .meet-maker__form {
-    /*height: 100%;*/
     padding: 5%;
-
-    form, .form-fields {
-        /*height: 100%;*/
-    }
+    @include clearHeader;
 
     .form-fields > li {
         height: 150px;
+
+        &:first-child {
+            margin-top: 5 / 90 * 100%;
+        }
 
         textarea {
             border-radius: 4px;

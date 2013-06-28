@@ -4,6 +4,8 @@ define([
   var AppView = Backbone.View.extend({
     el: '#app'
   , initialize: function( options ) {
+      var self = this;
+
       this.App = options.App;
       this.model = new UserModel({
         username: $.cookie( 'username' )
@@ -15,6 +17,7 @@ define([
       , success: function( model, res, options ) {
           console.log( 'Fetch logged-in user successful' );
           console.dir( model );
+          self.App.socket.emit( 'register', { username: model.get( 'username' ) } );
         }
       });
     }

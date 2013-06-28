@@ -1,5 +1,6 @@
 var User = require( '../models/user' )
-  , Meet = require( '../models/meet' );
+  , Meet = require( '../models/meet' )
+  , Async = require( 'async' );
 
 exports.create = function( req, res ) {
   var newMeet = new Meet({
@@ -12,16 +13,22 @@ exports.create = function( req, res ) {
 
   newMeet.save(function( err, newMeet ) {
     if ( err ) res.send( 500, 'Unable to create new meet.' );
-    User.findOneAndUpdate({ username: req.body.host }, {
+
+    var meetMembers = newMeet.who.invited;
+    meetMembers.push( newMeet.host );
+
+    Async.forEach(meetMembers, function( username, callback ) {
+      User.findOneAndUpdate({ username: username }, {
         $push: { meets: newMeet._id }
-    }, function( err, user ) {
-      if ( err ) res.send( 500, 'Unable to save meet to host.' );
-      res.send( 200, {} );
+      }, callback);
+    }, function( err ) {
+      if ( err ) res.send( 500, 'Unable to save meet.' );
+      else res.send( 200, {} );
     });
   });
 };
 
-exports.meetsAttending = function( req, res ) {
+exports.meets = function( req, res ) {
   User.findOne({ username: req.session.uid }).populate({
     path: 'meets'
   , model: 'Meet'

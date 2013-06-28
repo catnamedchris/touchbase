@@ -12,7 +12,11 @@ define([
       var host = this.App.Views.root.model.get( 'username' );
       this.model = new MeetModel({
         host: host
-      , who: []
+      , who: {
+          attending: [ host ]
+        , invited: []
+        , declined: []
+        }
       });
 
       this.views = {};
@@ -36,16 +40,20 @@ define([
       this.views.friendList.render();
     }
   , addInvitee: function( username ) {
-      var invitees = this.model.get( 'who' );
-      invitees.push( username );
-      this.model.set( 'who', invitees );
+      var meetModel = this.model.clone()
+        , who = meetModel.get( 'who' );
+
+      who.invited.push( username );
+      this.model.set( 'who', who );
     }
   , removeInvitee: function( username ) {
-      var invitees = this.model.get( 'who' );
-      invitees = _.filter(who, function( name ) {
+      var meetModel = this.model.clone()
+        , who = meetModel.get( 'who' );
+
+      who.invited = _.filter(who.invited, function( name ) {
         return name !== username;
       });
-      this.model.set( 'who', invitees );
+      this.model.set( 'who', who );
     }
   , finishMeetForm: function() {
       this.views.friendList.remove();

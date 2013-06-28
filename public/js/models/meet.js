@@ -7,7 +7,11 @@ define([], function() {
     , what: ''
     , when: ''
     , where: ''
-    , who: []
+    , who: {
+        attending: []
+      , invited: []
+      , declined: []
+      }
     }
   });
 

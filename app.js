@@ -55,7 +55,7 @@ app.get( '/api/users/search', friend.find );
 
 app.post( '/api/meet', meet.create );
 
-app.get( '/api/meets/attending', meet.meetsAttending );
+app.get( '/api/meets', meet.meets );
 
 
 var server = http.createServer( app ).listen(app.get( 'port' ), function() {

@@ -6,6 +6,8 @@ define([
     this.init = function() {
       this.Pubsub = _.extend({}, Backbone.Events);
 
+      this.socket = io.connect( window.location.origin );
+
       this.Models = {};
 
       this.Views = {};
@@ -13,7 +15,6 @@ define([
 
       this.router = new Router({ App: this });
 
-      this.socket = io.connect( window.location.origin );
 
       Backbone.history.start({ pushState: true });
     };
