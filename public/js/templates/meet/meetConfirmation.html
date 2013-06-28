@@ -18,14 +18,14 @@
   <div class="meet-card__parameter">
     <h3 class="parameter-label">With</h3><!--
  --><ul class="parameter-detail">
-      <% _.each(who.attending, function( username, index ) { %>
+      <% _.each(who.invited, function( username, index ) { %>
         <% if ( index !== 0) { %>
      --><li class="parameter-detail__user">
         <% } else { %>
         <li class="parameter-detail__user">
         <% } %>
           <img class="parameter-detail__user-avatar" data-username="<%= username %>" src="http://www.lorempixel.com/50/50/people">
-        <% if ( index !== who.attending.length - 1) { %>
+        <% if ( index !== who.invited.length - 1) { %>
         </li><!--
         <% } else { %>
         </li>
