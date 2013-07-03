@@ -28,6 +28,32 @@ exports.create = function( req, res ) {
   });
 };
 
+exports.delete = function( req, res ) {
+  Meet.findByIdAndRemove(req.params.id, 'who', function( err, meet ) {
+    if ( err )  res.send( 500, 'Unable to delete meet.' );
+
+    var members = meet.who.attending.concat( meet.who.invited );
+
+    Async.forEach(members, function( username, callback ) {
+      User.findOneAndUpdate({ username: username }, {
+        $pull: { meets: meet._id }
+      }, callback);
+    }, function( err ) {
+      if ( err ) res.send( 500, 'Unable to delete meet.' );
+      else res.send( 200, {} );
+    });
+  });
+};
+
+exports.put = function( req, res ) {
+  Meet.findByIdAndUpdate(req.params.id, {
+    who: req.body.who
+  }, function( err, meet ) {
+    if ( err ) res.send( 500, 'Unable to update attendees.' );
+    res.send( 200, {});
+  });
+};
+
 exports.meets = function( req, res ) {
   User.findOne({ username: req.session.uid }).populate({
     path: 'meets'

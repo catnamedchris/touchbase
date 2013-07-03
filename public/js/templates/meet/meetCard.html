@@ -24,11 +24,19 @@
         <li class="parameter-detail__user">
         <% } %>
           <img class="parameter-detail__user-avatar" data-username="<%= username %>" src="http://www.lorempixel.com/50/50/people">
-        <% if ( index !== who.length - 1) { %>
+        <% if ( index !== who.attending.length - 1) { %>
         </li><!--
         <% } else { %>
         </li>
         <% } %>
       <% }); %>
     </ul>
+  </div>
+  <div class="meet-card__actions grid">
+    <% if ( filter === 'Attending' ) { %>
+      <button class="btn btn--negative btn--cancel grid__item one-whole">Cancel</button>
+    <% } else { %>
+      <button class="btn btn--negative grid__item two-fifths">Decline</button><!--
+   --><button class="btn btn--positive btn--join grid__item two-fifths push--one-fifth">Join</button>
+    <% } %>
   </div>
