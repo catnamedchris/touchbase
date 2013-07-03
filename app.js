@@ -54,6 +54,8 @@ app.post( '/api/user/login', user.validate, user.login );
 app.get( '/api/users/search', friend.find );
 
 app.post( '/api/meet', meet.create );
+app.delete( '/api/meet/:id', meet.delete );
+app.put( '/api/meet/:id', meet.put );
 
 app.get( '/api/meets', meet.meets );
 

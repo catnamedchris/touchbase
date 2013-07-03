@@ -2,9 +2,13 @@
     height: 100%;
     position: relative;
     width: 100%;
+
+    ul {
+        margin-left: 0;
+    }
 }
 
-.meets__attending {
+.meets__cards {
     background-color: $baseColor4;
     padding: 5%;
     @include clearHeader;
@@ -64,11 +68,7 @@
                 display: inline-block;
             }
 
-            .meet-card__parameter:last-of-type > * {
-                &:last-child {
-                    margin-bottom: 0;
-                }
-
+            .meet-card__parameter:nth-last-child(2) > * {
                 display: block;
             }
 
@@ -90,6 +90,21 @@
 
                 .parameter-detail__user-name {
                     text-align: center;
+                }
+            }
+
+            .meet-card__actions {
+                @include push-setup();
+                margin-left: 0;
+                padding: 0 10%;
+
+                .btn {
+                    position: relative;
+                }
+
+                .btn--positive {
+                    border-radius: 4px;
+                    height: 100%;
                 }
             }
         }

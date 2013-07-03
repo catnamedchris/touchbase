@@ -1,8 +1,8 @@
 define([
   'js/collections/meets'
 , 'js/views/header/header'
-, 'js/views/meet/meetsAttending'
-], function( MeetCollection, HeaderView, MeetsAttendingView ) {
+, 'js/views/meet/meetCards'
+], function( MeetCollection, HeaderView, MeetCardsView ) {
   var MeetsView = Backbone.View.extend({
     className: 'meets'
   , initialize: function( options ) {
@@ -12,7 +12,7 @@ define([
 
       this.views = {};
       this.views.header = new HeaderView({ App: this.App });
-      this.views.meetingsAttending = new MeetsAttendingView({
+      this.views.meetCards = new MeetCardsView({
         App: this.App
       , collection: this.collection
       });
@@ -31,19 +31,11 @@ define([
       self.delegateEvents();
 
       self.$el.append( self.views.header.el );
-      self.$el.append( self.views.meetingsAttending.el );
+      self.$el.append( self.views.meetCards.el );
 
       self.views.header.render();
 
-      self.collection.fetch({
-        error: function( collection, res, options ) {
-          console.dir( res );
-        }
-      , success: function( collection, res, options ) {
-          console.log( 'Successfully fetched meets.' );
-          self.views.meetingsAttending.render();
-        }
-      });
+      self.updateMeets();
 
       return self;
     }
@@ -58,7 +50,7 @@ define([
       });
     }
   , renderMeets: function() {
-      this.views.meetingsAttending.render();
+      this.views.meetCards.render();
     }
   });
 
